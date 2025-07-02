@@ -13,16 +13,17 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 
 ## Advancements
 ### Deepsearch
-#### RAG-R1 [link](RAG-R1/README.md)
+#### [RAG-R1](RAG-R1/README.md)
 - environment: Search Engines (offline or [online](https://github.com/qingw-dev/aworld-mcp-servers))
 - LLM: Qwen2.5-7b-instruct
 
 
 ![RAG-R1-framework](RAG-R1/assets/RAG-R1.png)
-<center>Overall framework of RAG-R1</center>
+Overall framework of RAG-R1
 
 ![RAG-R1-result](RAG-R1/assets/RAG-R1-result.png)
-<center>Performance comparisons on QA benchmarks</center>
+Performance comparisons on QA benchmarks under the EM metric. The best and second
+best results are bold and underlined, respectively.
 
 
 ### FunctionCall
