@@ -67,11 +67,14 @@ python build_corpus_index.py
 (2) Launch a local retrieval server.
 ```bash
 python start_retrieval.py
+
+## test retrieval server
+python RAG-R1/rag_r1/search/retrieval_request.py
 ```
 
 (3) Run SFT training with Qwen2.5-7b-instruct.
 
-The SFT training data are available in the data/SFT directory. We recommend using the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) framework for SFT training.
+The SFT training data are available in the data/SFT directory. We recommend using the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for SFT training.
 
 (4) Run RL training(PPO) with SFT model or Qwen2.5-7b-instruct.
 ```bash
