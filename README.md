@@ -19,11 +19,12 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 
 
 ![RAG-R1-framework](RAG-R1/assets/RAG-R1.png)
-Overall framework of RAG-R1
+<h5 align="center">Overall framework of RAG-R1.</h5>
 
 ![RAG-R1-result](RAG-R1/assets/RAG-R1-result.png)
-Performance comparisons on QA benchmarks under the EM metric. The best and second
-best results are bold and underlined, respectively.
+<h5 align="left">Performance comparisons on QA benchmarks under the EM metric. The best and second
+best results are bold and underlined, respectively.</h5>
+
 
 
 ### FunctionCall
