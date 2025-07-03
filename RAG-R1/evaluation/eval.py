@@ -8,7 +8,7 @@ import pandas as pd
 import time
 
 test_data_name = 'HotpotQA'
-model_path = "../model/hotpotqa_train_filter-RAG-R1-qwen2.5-7b-sft-ppo"
+model_path = "../model/RAG-R1-qwen2.5-7b-instruct-sq"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 curr_eos = [151645, 151643]  # for Qwen2.5 series models

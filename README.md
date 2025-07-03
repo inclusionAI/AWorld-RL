@@ -9,7 +9,7 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 ![AgenticLearning Framework](assets/framework.png "AgenticLearning Framework")
 
 ## News
-[2025/07/01] 🔥🔥🔥We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
+[2025/07/01] 🔥🔥🔥[**RAG-R1**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
 
 ## Advancements
 ### Deepsearch
