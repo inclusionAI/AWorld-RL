@@ -17,7 +17,7 @@
 # 💡 Overview
 **RAG-R1** is a deepsearch training framework designed to enable LLMs to adaptively leverage internal and external knowledge during the reasoning process. 
 We further expand the generation and retrieval processes within the framework from single-query mode to multi-query parallelism, aimed at reducing inference time and enhancing the model's capabilities.
-Extensive experiments on seven question-answering benchmarks demonstrate that our method outperforms the strongest baseline by up to 13.2% and decreases inference time by 11.1%.
+Extensive experiments on seven question-answering benchmarks demonstrate that our method outperforms the strongest baseline by up to **13.2%** and decreases inference time by **11.1%**.
 - Paper: [arxiv]()
 - Model: [huggingface](https://huggingface.co/collections/endertzw/rag-r1-68481d7694b3fca8b809aa29)
 - Dataset: [KILT](https://modelscope.cn/datasets/yaoyueduzhen/KILT)
