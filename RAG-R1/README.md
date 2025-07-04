@@ -20,7 +20,7 @@ We further expand the generation and retrieval processes within the framework fr
 Extensive experiments on seven question-answering benchmarks demonstrate that our method outperforms the strongest baseline by up to **13.2%** and decreases inference time by **11.1%**.
 - Paper: [arxiv]()
 - Model: [huggingface](https://huggingface.co/collections/endertzw/rag-r1-68481d7694b3fca8b809aa29)
-- Dataset: [KILT](https://modelscope.cn/datasets/yaoyueduzhen/KILT)
+- Dataset: [SFT](https://huggingface.co/datasets/endertzw/RAG-R1-SFT-data), [RL](https://huggingface.co/datasets/endertzw/RAG-R1-RL-data), [KILT](https://modelscope.cn/datasets/yaoyueduzhen/KILT)
 
 # 🌐 Framework
 ![RAG-R1-framework](assets/RAG-R1.png)
