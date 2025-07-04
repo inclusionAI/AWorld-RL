@@ -21,8 +21,9 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 
 #### [RAG-R1](RAG-R1/README.md)
 
-- environment: Search Engines (offline or [online](https://github.com/qingw-dev/aworld-mcp-servers))
+- Environment: Search Engines (offline or [online](https://github.com/qingw-dev/aworld-mcp-servers))
 - LLM: Qwen2.5-7b-instruct
+- Algorithm: SFT + RL(PPO)
 
 ![RAG-R1-framework](RAG-R1/assets/RAG-R1.png)
 
