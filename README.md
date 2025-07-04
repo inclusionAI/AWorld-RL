@@ -26,11 +26,17 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 best results are bold and underlined, respectively.</h5>
 
 
-
 ### FunctionCall
+
+
+### Citation
+Please cite our repo if our works are helpful for your research.
+```
+```
+
+## Contact
+For any question or feedback, please reach out to us at [ender.tzw@antgroup.com](mailto:ender.tzw@antgroup.com) or [chenyi.zcy@antgroup.com](mailto:chenyi.zcy@antgroup.com)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
-For any question or feedback, please reach out to us at [ender.tzw@antgroup.com](mailto:ender.tzw@antgroup.com) or [chenyi.zcy@antgroup.com](mailto:chenyi.zcy@antgroup.com)
