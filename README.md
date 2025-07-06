@@ -13,7 +13,7 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 
 [2025/07/01] 🔥🔥🔥[**RAG-R1**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
 
-[2025/05/16] 🔥🔥🔥[**FunReason**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) We propose **FunReason**, a novel framework that enhances LLMs' function calling capabilities through an automated data refinement strategy and a Self-Refinement Multiscale Loss approach.
+[2025/05/16] 🔥🔥🔥[**FunReason**](https://github.com/BingguangHao/FunReason/) We propose **FunReason**, a novel framework that enhances LLMs' function calling capabilities through an automated data refinement strategy and a Self-Refinement Multiscale Loss approach.
 
 ## Advancements
 
@@ -38,14 +38,16 @@ best results are bold and underlined, respectively.</h5>
 
 #### [FunReason](https://github.com/BingguangHao/FunReason/)
 
-FunReason, a novel framework with SRML approach specifically designed to enhance the function calling capabilities of LLMs. Through extensive experiments on the BFCL benchmark, we demonstrate that our FunReason achieves performance comparable to GPT-4o, surpassing existing RL-based methods. Furthermore, our approach effectively mitigates the critical issue of catastrophic forgetting during fine-tuning, as evidenced by the results on the HumanEval and MBPP code benchmarks. Complementing our loss function, we developed a comprehensive data refinement strategy that leverages LLMs to automatically evaluate and improve the quality of function calling data. Notably, our findings indicate that naturally generated CoT data from reasoning models outperforms artificially constructed CoT based on predefined strategies.
+- environment: Real Human Function calling (BFCLv2 live&non-live)
+- LLM: Qwen2.5-7b-Coder-instruct
+
+FunReason is a framework designed to enhance LLMs' function calling capabilities, achieving GPT-4o-comparable performance on BFCL, surpassing RL-based methods, mitigating catastrophic forgetting on HumanEval and MBPP, and using a data refinement strategy where natural CoT data outperforms artificial ones.
 
 ![FunReason-Performance](FunctionCall/assets/Fun_pipline.png)
 
 <h5 align="center">Data refinement pipline of FunReason.</h5>
 
 **Overview of FunReason's data refinement pipeline.** The pipeline consists of five stages: Function Call Classification, Query and Tool Identification, CoT Identification, Function and Parameter Identification, and Format Identification. Each stage ensures specific aspects of data quality, with failing examples either being discarded or regenerated.
-
 
 ![FunReason-Performance](FunctionCall/assets/Fun_per.png)
 
@@ -54,8 +56,15 @@ FunReason, a novel framework with SRML approach specifically designed to enhance
 ### Citation
 
 Please cite our repo if our works are helpful for your research.
+#### FunReason
 
 ```
+@article{FunReason,
+  title={FunReason: Enhancing Large Language Models' Function Calling via Self-Refinement Multiscale Loss and Automated Data Refinement},
+  author={Bingguang Hao, Maolin Wang, Zengzhuang Xu, Cunyin Peng, Yicheng Chen, Xiangyu Zhao, Jinjie Gu, Chenyi Zhuang},
+  journal={arXiv preprint arXiv:2505.20192},
+  year={2025}
+}
 
 ```
 
