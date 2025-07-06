@@ -97,6 +97,5 @@ docs/api/
 *.doc
 *.pptx
 *.ppt
-*.pdf
 *.html
 *.wav
