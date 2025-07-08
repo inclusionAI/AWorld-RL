@@ -56,16 +56,20 @@ FunReason is a framework designed to enhance LLMs' function calling capabilities
 ### Citation
 
 Please cite our repo if our works are helpful for your research.
-#### FunReason
-
 ```
+@article{RAG-R1,
+  title={RAG-R1 : Incentivize the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism}, 
+  author={Zhiwen Tan and Jiaming Huang and Qintong Wu and Hongxuan Zhang and Chenyi Zhuang and Jinjie Gu},
+  journal={arXiv preprint arXiv:2507.02962},
+  year={2025}
+}
+
 @article{FunReason,
   title={FunReason: Enhancing Large Language Models' Function Calling via Self-Refinement Multiscale Loss and Automated Data Refinement},
   author={Bingguang Hao, Maolin Wang, Zengzhuang Xu, Cunyin Peng, Yicheng Chen, Xiangyu Zhao, Jinjie Gu, Chenyi Zhuang},
   journal={arXiv preprint arXiv:2505.20192},
   year={2025}
 }
-
 ```
 
 ## Contact

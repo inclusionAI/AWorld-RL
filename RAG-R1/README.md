@@ -1,11 +1,11 @@
-<h1 align="center">RAG-R1 : Incentivize the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism</a></h1>
+<h1 align="center">RAG-R1 : Incentivize the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism</h1>
 
 
 <div align="center">
 <a href="./LICENSE"><img src="https://img.shields.io/badge/Code_License-MIT-blue" alt="license"></a>
 <a href="./LICENSE"><img src="https://img.shields.io/badge/Model_License-MIT-blue" alt="license"></a>
 <a href="https://huggingface.co/collections/endertzw/rag-r1-68481d7694b3fca8b809aa29"><img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-blue?color=8A2BE2"></a>
-<a href="https://github.com/inclusionAI/AgenticLearning/tree/main/RAG-R1/RAG_R1.pdf" target="_blank"><img src=https://img.shields.io/badge/arXiv-b5212f.svg?logo=arxiv></a>
+<a href="https://arxiv.org/abs/2507.02962" target="_blank"><img src=https://img.shields.io/badge/arXiv-b5212f.svg?logo=arxiv></a>
 </div>
 
 
@@ -18,7 +18,7 @@
 **RAG-R1** is a deepsearch training framework designed to enable LLMs to adaptively leverage internal and external knowledge during the reasoning process. 
 We further expand the generation and retrieval processes within the framework from single-query mode to multi-query parallelism, aimed at reducing inference time and enhancing the model's capabilities.
 Extensive experiments on seven question-answering benchmarks demonstrate that our method outperforms the strongest baseline by up to **13.2%** and decreases inference time by **11.1%**.
-- Paper: [arxiv](RAG_R1.pdf)
+- Paper: [arxiv](https://arxiv.org/abs/2507.02962)
 - Model: [huggingface](https://huggingface.co/collections/endertzw/rag-r1-68481d7694b3fca8b809aa29)
 - Dataset: [SFT](https://huggingface.co/datasets/endertzw/RAG-R1-SFT-data), [RL](https://huggingface.co/datasets/endertzw/RAG-R1-RL-data), [KILT](https://modelscope.cn/datasets/yaoyueduzhen/KILT)
 
@@ -100,6 +100,12 @@ RAG-R1 is inspired by [Deepseek-R1](https://github.com/deepseek-ai/DeepSeek-R1) 
 # ✍️ Citation
 Please cite our repo if our works are helpful for your research.
 ```
+@article{RAG-R1,
+  title={RAG-R1 : Incentivize the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism}, 
+  author={Zhiwen Tan and Jiaming Huang and Qintong Wu and Hongxuan Zhang and Chenyi Zhuang and Jinjie Gu},
+  journal={arXiv preprint arXiv:2507.02962},
+  year={2025}
+}
 ```
 
 # 📧 Contact
