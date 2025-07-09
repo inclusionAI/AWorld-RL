@@ -9,6 +9,11 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 
 ![AgenticLearning Framework](assets/framework.png "AgenticLearning Framework")
 
+| Advancements  |  Models |                                         Tools                                         |                   Environment                   |                                                                    Training Framework                                                                    |
+|:---------------------------------------------------------------------------------------:|:-------------------------:|:-------------------------------------------------------------------------------------:|:-----------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [**RAG-R1**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) |    Qwen2.5-7b-instruct    | offline retrieval<br>[online search](https://github.com/qingw-dev/aworld-mcp-servers) | [Aworld](https://github.com/inclusionAI/AWorld) | [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)<br>[verl](https://github.com/volcengine/verl)<br>[AReaL](https://github.com/inclusionAI/AReaL) |
+|               [**FunReason**](https://github.com/BingguangHao/FunReason/)               | Qwen2.5-7b-Coder-instruct |                                       [BFCL](https://gorilla.cs.berkeley.edu/leaderboard.html#leaderboard)                                        | [Aworld](https://github.com/inclusionAI/AWorld) |                                                        [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)<br>[verl](https://github.com/volcengine/verl)                                                        |
+
 ## News
 
 [2025/07/01] 🔥🔥🔥[**RAG-R1**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
