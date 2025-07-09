@@ -26,9 +26,8 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 
 #### [RAG-R1](RAG-R1/README.md)
 
-- Environment: Search Engines (offline or [online](https://github.com/qingw-dev/aworld-mcp-servers))
+- Tools: Search Engines (offline or [online](https://github.com/qingw-dev/aworld-mcp-servers))
 - LLM: Qwen2.5-7b-instruct
-- Algorithm: SFT + RL(PPO)
 
 ![RAG-R1-framework](RAG-R1/assets/RAG-R1.png)
 
@@ -43,7 +42,7 @@ best results are bold and underlined, respectively.</h5>
 
 #### [FunReason](https://github.com/BingguangHao/FunReason/)
 
-- environment: Real Human Function calling (BFCLv2 live&non-live)
+- Tools: Real Human Function calling (BFCLv2 live&non-live)
 - LLM: Qwen2.5-7b-Coder-instruct
 
 FunReason is a framework designed to enhance LLMs' function calling capabilities, achieving GPT-4o-comparable performance on BFCL, surpassing RL-based methods, mitigating catastrophic forgetting on HumanEval and MBPP, and using a data refinement strategy where natural CoT data outperforms artificial ones.
