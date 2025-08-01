@@ -69,7 +69,7 @@ PYTHONUNBUFFERED=1 python3 -m verl.trainer.main_ppo \
     trainer.total_training_steps=500 \
     trainer.default_hdfs_dir=null \
     trainer.default_local_dir=./model/$EXPERIMENT_NAME \
-    max_turns=4 \
+    max_turns=5 \
     retriever.url="http://127.0.0.1:8000/retrieve" \
     retriever.topk=3 \
     2>&1 | tee $EXPERIMENT_NAME.log
