@@ -17,6 +17,7 @@ logger = None
 MAX_RETRY_TIMES = 10
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY",None) #"Your OpenAI API Key"
+OPENAI_BASE_URL = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com")
 
 def encode_image(image_content):
     return base64.b64encode(image_content).decode("utf-8")
@@ -233,11 +234,11 @@ class O3Agent:
     def call_llm(self, payload, model):
         headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {OPENAI_API_KEY}"
+            "Authorization": f"Bearer {OPENAI_API_KEY}",
         }
         logger.info("Generating content with GPT model: %s", model)
         response = requests.post(
-            "https://api.openai.com/v1/chat/completions",
+            OPENAI_BASE_URL,
             headers=headers,
             json=payload,
         )

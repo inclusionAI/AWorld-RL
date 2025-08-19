@@ -174,11 +174,12 @@ def run_env_tasks(task_queue: Queue, args: argparse.Namespace, shared_scores: li
             headless=args.headless,
             os_type="Ubuntu",
             require_a11y_tree=args.observation_type in ["a11y_tree", "screenshot_a11y_tree", "som"],
-            enable_proxy=True,
+            enable_proxy=False, # modified by yishan.wd
             client_password=args.client_password
         )
         active_environments.append(env)
         agent = O3Agent(
+            model="openai/o3",
             max_steps=args.max_steps,
             client_password=args.client_password,
             action_space=args.action_space,
@@ -224,12 +225,18 @@ def run_env_tasks(task_queue: Queue, args: argparse.Namespace, shared_scores: li
                     import traceback
                     logger.error(f"Exception in {current_process().name} {domain}/{example_id}: {e}")
                     logger.error(traceback.format_exc())
+                    
+                    # Ensure the result directory exists
+                    os.makedirs(example_result_dir, exist_ok=True)
+                    
                     try:
                         env.controller.end_recording(
                             os.path.join(example_result_dir, "recording.mp4")
                         )
                     except Exception as rec_e:
                         logger.error(f"Failed to end recording: {rec_e}")
+                    
+                    # Record the error in traj.jsonl
                     with open(os.path.join(example_result_dir, "traj.jsonl"), "a") as f:
                         f.write(
                             json.dumps(
@@ -237,6 +244,12 @@ def run_env_tasks(task_queue: Queue, args: argparse.Namespace, shared_scores: li
                             )
                         )
                         f.write("\n")
+                    
+                    # Create a failed result file to mark this task as failed
+                    with open(os.path.join(example_result_dir, "result.txt"), "w") as f:
+                        f.write("0.0\n")  # Failed tasks get 0.0 score
+                    
+                    logger.info(f"Task {domain}/{example_id} marked as failed with score 0.0")
             except Exception as e:
                 logger.error(f"Task-level error in {current_process().name}: {e}")
                 import traceback
