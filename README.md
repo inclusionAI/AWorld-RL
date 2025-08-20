@@ -11,16 +11,33 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 
 | Advancements  |  Models |                                         Tools                                         |                   Environment                   |                                                                    Training Framework                                                                    |
 |:---------------------------------------------------------------------------------------:|:-------------------------:|:-------------------------------------------------------------------------------------:|:-----------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|               [**V2P**](https://github.com/inclusionAI/AgenticLearning/blob/main/V2P/README.md)                | Qwen2.5-7b-instruct |                           None                           | [AWorld](https://github.com/inclusionAI/AWorld) |                 [Transformers](https://github.com/huggingface/transformers) 
 | [**RAG-R1**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) |    Qwen2.5-7b-instruct    | offline retrieval<br>[online search](https://github.com/qingw-dev/aworld-mcp-servers) | [AWorld](https://github.com/inclusionAI/AWorld) | [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)<br>[verl](https://github.com/volcengine/verl)<br>[AReaL](https://github.com/inclusionAI/AReaL) |
 |               [**FunReason**](https://github.com/BingguangHao/FunReason/)               | Qwen2.5-7b-Coder-instruct |                                       [BFCL](https://gorilla.cs.berkeley.edu/leaderboard.html#leaderboard)                                        | [AWorld](https://github.com/inclusionAI/AWorld) |                                                        [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)<br>[verl](https://github.com/volcengine/verl)                                                        |
+                                                
 
 ## News
+[2025/08/19] 🔥🔥🔥[**V2P**](https://github.com/inclusionAI/AgenticLearning/blob/main/V2P/README.md) We propose **V2P**, a novel training method for multi-modal models that enables coordinate-free, human-like visual GUI Grounding.
 
 [2025/07/01] 🔥🔥🔥[**RAG-R1**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
 
 [2025/05/16] 🔥🔥🔥[**FunReason**](https://github.com/BingguangHao/FunReason/) We propose **FunReason**, a novel framework that enhances LLMs' function calling capabilities through an automated data refinement strategy and a Self-Refinement Multiscale Loss approach.
 
 ## Advancements
+### GUI Navigation
+#### [V2P](https://github.com/inclusionAI/AgenticLearning/blob/main/V2P/README.md) 
+
+- Tools: None
+- LLM: Qwen2.5-7b-instruct
+
+![V2P-framework](V2P/assets/main.png)
+
+<h5 align="center">Overall framework of V2P.</h5>
+
+![V2P-result](V2P/assets/results.png)
+
+<h5 align="center">Performance on both SreenSpot-v2 (left) and ScreenSpot-Pro (right).</h5>
+  
 
 ### Deepsearch
 

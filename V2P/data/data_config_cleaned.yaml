@@ -1,0 +1,19 @@
+datasets:
+  - json_path: data/cleaned_datasets/filter_th_03_v2/clean_uground_vlm_th03_v2pair_fixed.json
+    images_folder: /mnt/agent-s1/common/public/xiangchen/nas/GUI-Actor/gui_actor_data/GUI-Actor-Data/default/antcia_version=1/uground/Uground/images/
+    sampling_strategy: "all"
+  - json_path: data/cleaned_datasets/filter_th_03_v2/clean_guienv_vlm_th03_v2pair.json
+    images_folder: /mnt/agent-s1/common/public/xiangchen/nas/GUI-Actor/gui_actor_data/GUI-Actor-Data/default/antcia_version=1/guienvs/images/
+    sampling_strategy: "all"
+  - json_path: data/cleaned_datasets/filter_th_03_v2/clean_guiact_vl_th03_v2pair.json
+    images_folder: /mnt/agent-s1/common/public/xiangchen/nas/GUI-Actor/gui_actor_data/GUI-Actor-Data/default/antcia_version=1/GUIAct/web_imgs/
+    sampling_strategy: "all"
+  - json_path: data/cleaned_datasets/filter_th_03_v2/clean_amex_vlm_th03_v2pair_fixed.json
+    images_folder: /mnt/agent-s1/common/public/xiangchen/nas/GUI-Actor/gui_actor_data/GUI-Actor-Data/default/antcia_version=1/amex/
+    sampling_strategy: "all"
+  - json_path: data/cleaned_datasets/filter_th_03_v2/clean_androidcontrol_vlm_th03_v2pair.json
+    images_folder: /mnt/agent-s1/common/public/xiangchen/nas/GUI-Actor/gui_actor_data/GUI-Actor-Data/default/antcia_version=1/AndroidControl/tfrecord/images/
+    sampling_strategy: "all"
+  - json_path: data/cleaned_datasets/filter_th_03_v2/clean_wave_ui_vlm_th03_v2pair.json
+    images_folder: /mnt/agent-s1/common/public/xiangchen/nas/GUI-Actor/gui_actor_data/GUI-Actor-Data/default/antcia_version=1/Wave-UI/images_fixed/
+    sampling_strategy: "all"
