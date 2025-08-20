@@ -24,7 +24,7 @@ We introduce **AgenticLearning**, an open-source agent training paradigm designe
 [2025/05/16] 🔥🔥🔥[**FunReason**](https://github.com/BingguangHao/FunReason/) We propose **FunReason**, a novel framework that enhances LLMs' function calling capabilities through an automated data refinement strategy and a Self-Refinement Multiscale Loss approach.
 
 ## Advancements
-### GUI Navigation
+### Multi-Modal
 #### [V2P](https://github.com/inclusionAI/AgenticLearning/blob/main/V2P/README.md) 
 
 - Tools: Click
