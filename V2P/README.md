@@ -33,8 +33,12 @@
 AWorld empowers you to rapidly build individual tool-using agents, orchestrate sophisticated multi-agent systems, train agents effectively, and synthesize the high-quality data required for continuous agent evolution – all converging towards autonomous self-improvement.
 
 <p align="center">
-  <a href="https://github.com/inclusionAI/AWorld">Click here to view more information about Aworld</a>
+  <a href="https://github.com/inclusionAI/AWorld">
+    Click here to view more information about Aworld
+    <img src="./assets/aworld_logo.png" alt="Aworld Logo" width="24" style="vertical-align:middle;">
+  </a>
 </p>
+
 ---
 
 # ✨ News
