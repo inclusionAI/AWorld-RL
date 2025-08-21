@@ -16,10 +16,10 @@
 3. **Self-Awareness**: Synthesize the agent's own knowledge and experience to achieve ultimate self-improvement. -->
 
 <p align="center">
-  <img src="./assets/aworld_logo.png" width="100" alt="Aworld Logo"/>
+  <img src="./assets/aworld_logo.png" alt="Aworld Logo"/>
 </p>
 <p align="center">
-  <img src="./assets/heading_banner.png" width="300" alt="Heading Banner"/>
+  <img src="./assets/heading_banner.png" alt="Heading Banner"/>
 </p>
 
 **AWorld (Agent World)** is the next-generation framework engineered for agent self-improvement at scale. We enable AI agents to continuously evolve by synthesizing their own knowledge and experiences. This core capability is powered by:
@@ -32,7 +32,9 @@
 
 AWorld empowers you to rapidly build individual tool-using agents, orchestrate sophisticated multi-agent systems, train agents effectively, and synthesize the high-quality data required for continuous agent evolution – all converging towards autonomous self-improvement.
 
-[Click here to view more information about Aworld](https://aworld.example.com](https://aworld.example.com](https://github.com/inclusionAI/AWorld)
+<p align="center">
+  <a href="https://github.com/inclusionAI/AWorld">Click here to view more information about Aworld</a>
+</p>
 ---
 
 # ✨ News
