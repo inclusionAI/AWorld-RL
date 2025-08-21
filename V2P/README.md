@@ -10,7 +10,7 @@
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for the latest update.</h5>
 
 ---
-![](./assets/aworld_logo.png)
+![](./assets/aworld_logo.png) <h2 align="**Introducing AWorld (Agent World)**">
 <!-- **Introducing AWorld (Agent World)**: A next-generation framework for agent learning with three key characteristics: 
 1. **Plug-and-Play:** Box up complex modules with bulletproof protocols and zero-drama state control.
 2. **Cloud-Native Velocity:** Train smarter agents that evolve their own brains—prompts, workflows, memory, and tools—on the fly.  
