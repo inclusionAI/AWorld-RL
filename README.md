@@ -78,6 +78,16 @@ FunReason is a framework designed to enhance LLMs' function calling capabilities
 
 Please cite our repo if our works are helpful for your research.
 ```
+@misc{chen2025v2pbackgroundsuppressioncenter,
+      title={V2P: From Background Suppression to Center Peaking for Robust GUI Grounding Task},
+      author={Jikai Chen and Long Chen and Dong Wang and Leilei Gan and Chenyi Zhuang and Jinjie Gu},
+      year={2025},
+      eprint={2508.13634},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2508.13634},
+}
+
 @article{RAG-R1,
   title={RAG-R1 : Incentivize the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism}, 
   author={Zhiwen Tan and Jiaming Huang and Qintong Wu and Hongxuan Zhang and Chenyi Zhuang and Jinjie Gu},
