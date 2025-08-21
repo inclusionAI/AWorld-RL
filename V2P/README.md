@@ -10,7 +10,6 @@
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for the latest update.</h5>
 
 ---
-![](./assets/aworld_logo.png) <h2 align="**Introducing AWorld (Agent World)**">
 <!-- **Introducing AWorld (Agent World)**: A next-generation framework for agent learning with three key characteristics: 
 1. **Plug-and-Play:** Box up complex modules with bulletproof protocols and zero-drama state control.
 2. **Cloud-Native Velocity:** Train smarter agents that evolve their own brains—prompts, workflows, memory, and tools—on the fly.  
@@ -28,7 +27,7 @@
 
 AWorld empowers you to rapidly build individual tool-using agents, orchestrate sophisticated multi-agent systems, train agents effectively, and synthesize the high-quality data required for continuous agent evolution – all converging towards autonomous self-improvement.
 
-[![Aworld](./assets/aworld_logo.png)]([https://aworld.example.com](https://github.com/inclusionAI/AWorld))
+[![logo](./assets/aworld_logo.png) Aworld]([https://aworld.example.com](https://aworld.example.com](https://github.com/inclusionAI/AWorld))
 ---
 
 # ✨ News
