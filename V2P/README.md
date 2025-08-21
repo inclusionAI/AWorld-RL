@@ -34,8 +34,8 @@ AWorld empowers you to rapidly build individual tool-using agents, orchestrate s
 
 <p align="center">
   <a href="https://github.com/inclusionAI/AWorld">
+    <img src="./assets/aworld_logo.png" alt="Aworld Logo" width="24" style="vertical-align: middle;">
     Click here to view more information about Aworld
-    <img src="./assets/aworld_logo.png" alt="Aworld Logo" width="24" style="vertical-align:middle;">
   </a>
 </p>
 
