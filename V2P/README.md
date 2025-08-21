@@ -79,7 +79,7 @@ bash eval/eval_scripts_for_v2.sh
 bash eval/eval_scripts_for_pro.sh
 ```
 
-# 🧾 TODO
+# 🌟 Future Work
 
 Our future work will be integrated into the [AWorld](https://github.com/inclusionAI/AWorld) framework under the *Multi-Modal* category, enhancing Agent capabilities in advanced OS and web interactions through more precise GUI grounding.
 
