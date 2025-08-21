@@ -10,12 +10,12 @@
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for the latest update.</h5>
 
 ---
-![](./readme_assets/aworld_logo.png)<!-- **Introducing AWorld (Agent World)**: A next-generation framework for agent learning with three key characteristics: 
+![](./assets/aworld_logo.png)<!-- **Introducing AWorld (Agent World)**: A next-generation framework for agent learning with three key characteristics: 
 1. **Plug-and-Play:** Box up complex modules with bulletproof protocols and zero-drama state control.
 2. **Cloud-Native Velocity:** Train smarter agents that evolve their own brains—prompts, workflows, memory, and tools—on the fly.  
 3. **Self-Awareness**: Synthesize the agent's own knowledge and experience to achieve ultimate self-improvement. -->
 
-![](./readme_assets/heading_banner.png)
+![](./assets/heading_banner.png)
 
 **AWorld (Agent World)** is the next-generation framework engineered for agent self-improvement at scale. We enable AI agents to continuously evolve by synthesizing their own knowledge and experiences. This core capability is powered by:
 
