@@ -9,37 +9,6 @@
 
 <h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for the latest update.</h5>
 
----
-<!-- **Introducing AWorld (Agent World)**: A next-generation framework for agent learning with three key characteristics: 
-1. **Plug-and-Play:** Box up complex modules with bulletproof protocols and zero-drama state control.
-2. **Cloud-Native Velocity:** Train smarter agents that evolve their own brains—prompts, workflows, memory, and tools—on the fly.  
-3. **Self-Awareness**: Synthesize the agent's own knowledge and experience to achieve ultimate self-improvement. -->
-
-<p align="center">
-  <img src="./assets/aworld_logo.png" alt="Aworld Logo"/>
-</p>
-<p align="center">
-  <img src="./assets/heading_banner.png" alt="Heading Banner"/>
-</p>
-
-**AWorld (Agent World)** is the next-generation framework engineered for agent self-improvement at scale. We enable AI agents to continuously evolve by synthesizing their own knowledge and experiences. This core capability is powered by:
-
-1. **Multi-Agent Systems (MAS)**: Build complex, interacting agent societies using our plug-and-play protocols and robust context management. 
-
-2. **Intelligence Beyond a Single Model**: Generates high-quality feedback and diverse synthetic training data that fuel individual agent evolution.
-
-3. **Cloud-Native for Diversity & Scale**: Delivers the high concurrency and scalability for training smarter agents and achieving self-improvement.
-
-AWorld empowers you to rapidly build individual tool-using agents, orchestrate sophisticated multi-agent systems, train agents effectively, and synthesize the high-quality data required for continuous agent evolution – all converging towards autonomous self-improvement.
-
-<p align="center">
-  <a href="https://github.com/inclusionAI/AWorld">
-    <img src="./assets/aworld_logo.png" alt="Aworld Logo" width="24" style="vertical-align: middle;">
-    Click here to view more information about Aworld
-  </a>
-</p>
-
----
 
 # ✨ News
 
@@ -109,6 +78,10 @@ For inference stage, please first download the ScreenSpot-v2 and ScreenSpot-Pro 
 bash eval/eval_scripts_for_v2.sh
 bash eval/eval_scripts_for_pro.sh
 ```
+
+# 🧾 TODO
+
+Our future work will be integrated into the [AWorld](https://github.com/inclusionAI/AWorld) framework under the *Multi-Modal* category, enhancing Agent capabilities in advanced OS and web interactions through more precise GUI grounding.
 
 # 🙏 Acknowledgements
 
