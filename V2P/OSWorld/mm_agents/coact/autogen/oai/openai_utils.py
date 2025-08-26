@@ -119,6 +119,79 @@ OAI_PRICE1K = {
     "gpt-35-turbo-16k-0613": (0.003, 0.004),
     # deepseek
     "deepseek-chat": (0.00027, 0.0011),
+    # modified by yishan.wd
+    # o1
+    "openai/o1-preview-2024-09-12": (0.0015, 0.0060),
+    "openai/o1-preview": (0.0015, 0.0060),
+    "openai/o1-mini-2024-09-12": (0.0003, 0.0012),
+    "openai/o1-mini": (0.0003, 0.0012),
+    "openai/o1": (0.0015, 0.0060),
+    "openai/o1-2024-12-17": (0.0015, 0.0060),
+    # o1 pro
+    "openai/o1-pro": (0.15, 0.6),  # $150 / $600!
+    "openai/o1-pro-2025-03-19": (0.15, 0.6),
+    # o3
+    "openai/o3": (0.0011, 0.0044),
+    "openai/o3-mini-2025-01-31": (0.0011, 0.0044),
+    # gpt-4o
+    "openai/gpt-4o": (0.005, 0.015),
+    "openai/gpt-4o-2024-05-13": (0.005, 0.015),
+    "openai/gpt-4o-2024-08-06": (0.0025, 0.01),
+    "openai/gpt-4o-2024-11-20": (0.0025, 0.01),
+    # gpt-4o-mini
+    "openai/gpt-4o-mini": (0.000150, 0.000600),
+    "openai/gpt-4o-mini-2024-07-18": (0.000150, 0.000600),
+    # gpt-4-turbo
+    "openai/gpt-4-turbo-2024-04-09": (0.01, 0.03),
+    # gpt-4
+    "openai/gpt-4": (0.03, 0.06),
+    "openai/gpt-4-32k": (0.06, 0.12),
+    # gpt-4.1
+    "openai/gpt-4.1": (0.002, 0.008),
+    "openai/gpt-4.1-2025-04-14": (0.002, 0.008),
+    # gpt-4.1 mini
+    "openai/gpt-4.1-mini": (0.0004, 0.0016),
+    "openai/gpt-4.1-mini-2025-04-14": (0.0004, 0.0016),
+    # gpt-4.1 nano
+    "openai/gpt-4.1-nano": (0.0001, 0.0004),
+    "openai/gpt-4.1-nano-2025-04-14": (0.0001, 0.0004),
+    # gpt-3.5 turbo
+    "openai/gpt-3.5-turbo": (0.0005, 0.0015),  # default is 0125
+    "openai/gpt-3.5-turbo-0125": (0.0005, 0.0015),  # 16k
+    "openai/gpt-3.5-turbo-instruct": (0.0015, 0.002),
+    # base model
+    "openai/davinci-002": 0.002,
+    "openai/babbage-002": 0.0004,
+    # old model
+    "openai/gpt-4-0125-preview": (0.01, 0.03),
+    "openai/gpt-4-1106-preview": (0.01, 0.03),
+    "openai/gpt-4-1106-vision-preview": (0.01, 0.03),
+    "openai/gpt-3.5-turbo-1106": (0.001, 0.002),
+    "openai/gpt-3.5-turbo-0613": (0.0015, 0.002),
+    #openai/ "gpt-3.5-turbo-16k": (0.003, 0.004),
+    "openai/gpt-3.5-turbo-16k-0613": (0.003, 0.004),
+    "openai/gpt-3.5-turbo-0301": (0.0015, 0.002),
+    "openai/text-ada-001": 0.0004,
+    "openai/text-babbage-001": 0.0005,
+    "openai/text-curie-001": 0.002,
+    "openai/code-cushman-001": 0.024,
+    "openai/code-davinci-002": 0.1,
+    "openai/text-davinci-002": 0.02,
+    "openai/text-davinci-003": 0.02,
+    "openai/gpt-4-0314": (0.03, 0.06),  # deprecate in Sep
+    "openai/gpt-4-32k-0314": (0.06, 0.12),  # deprecate in Sep
+    "openai/gpt-4-0613": (0.03, 0.06),
+    "openai/gpt-4-32k-0613": (0.06, 0.12),
+    "openai/gpt-4-turbo-preview": (0.01, 0.03),
+    # https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/#pricing
+    "openai/gpt-35-turbo": (0.0005, 0.0015),  # what's the default? using 0125 here.
+    "openai/gpt-35-turbo-0125": (0.0005, 0.0015),
+    "openai/gpt-35-turbo-instruct": (0.0015, 0.002),
+    "openai/gpt-35-turbo-1106": (0.001, 0.002),
+    "openai/gpt-35-turbo-0613": (0.0015, 0.002),
+    "openai/gpt-35-turbo-0301": (0.0015, 0.002),
+    "openai/gpt-35-turbo-16k": (0.003, 0.004),
+    "openai/gpt-35-turbo-16k-0613": (0.003, 0.004)
 }
 
 

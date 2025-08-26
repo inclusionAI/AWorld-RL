@@ -775,6 +775,182 @@ class SetupController:
 
             return browser, context
 
+    def _delete_all_browsing_data_chromium_setup(self, **config):
+        """Delete all browsing data in Chromium/Chrome browser (all time, all data types).
+        """
+        host = self.vm_ip
+        port = self.chromium_port
+        server_port = self.server_port
+
+        remote_debugging_url = f"http://{host}:{port}"
+        backend_url = f"http://{host}:{server_port}"
+        
+        with sync_playwright() as p:
+            browser = None
+            
+            # Try to connect to Chrome instance with retry logic
+            for main_attempt in range(5):  # Try up to 3 times to establish connection
+                try:
+                    browser = p.chromium.connect_over_cdp(remote_debugging_url)
+                    logger.info("Successfully connected to Chrome instance")
+                    break
+                except Exception as e:
+                    logger.warning(f"Main attempt {main_attempt + 1}: Failed to connect to Chrome instance: {e}")
+                    
+                    if main_attempt < 2:  # Don't check processes on the last attempt
+                        # Check if Chrome is running with remote debugging enabled
+                        logger.info("Checking for existing Chrome processes with remote debugging...")
+                        chrome_with_debug_running = False
+                        
+                        try:
+                            # Use ps aux | grep -i chrome to check for Chrome processes
+                            check_command = "ps aux | grep -i chrome | grep remote-debugging-port | grep -v grep"
+                            payload = json.dumps({"command": check_command, "shell": True})
+                            headers = {"Content-Type": "application/json"}
+                            response = requests.post(backend_url + "/execute", headers=headers, data=payload)
+                            
+                            if response.status_code == 200:
+                                result = response.json()
+                                output = result.get("output", "").strip()
+                                # 检查输出是否包含实际的Chrome进程，而不是grep命令本身
+                                if output and len(output) > 0 and ("google-chrome" in output or "chromium" in output):
+                                    logger.info(f"Found existing Chrome processes with remote debugging: {output}")
+                                    chrome_with_debug_running = True
+                                else:
+                                    logger.info("No Chrome processes with remote debugging found")
+                            else:
+                                logger.info("No Chrome processes with remote debugging found (request failed)")
+                                
+                        except Exception as check_e:
+                            logger.warning(f"Failed to check running processes: {check_e}")
+                        
+                        # If no Chrome with debugging is running, start a new instance
+                        if not chrome_with_debug_running:
+                            logger.info("No Chrome instance with remote debugging found. Starting new Chrome instance...")
+                            
+                            app = 'chromium' if 'arm' in platform.machine() else 'google-chrome'
+                            command = [
+                                app,
+                                "--remote-debugging-port=1337"
+                            ]
+                            
+                            if self.use_proxy:
+                                command.append("--proxy-server=127.0.0.1:18888")
+                                logger.info("Using proxy server: 127.0.0.1:18888")
+                            
+                            logger.info(f"Starting browser with command: {' '.join(command)}")
+                            payload = json.dumps({"command": command, "shell": False})
+                            headers = {"Content-Type": "application/json"}
+                            requests.post(backend_url + "/setup/launch", headers=headers, data=payload)
+                            
+                            # Wait 10 seconds for Chrome to start
+                            logger.info("Waiting 10 seconds for Chrome to start...")
+                            time.sleep(10)
+                            # open 
+                            command = "socat tcp-listen:9222,fork tcp:localhost:1337"
+                            
+                            logger.info(f"Starting browser with command: {command}")
+                            payload = json.dumps({"command": command, "shell": False})
+                            headers = {"Content-Type": "application/json"}
+                            requests.post(backend_url + "/setup/launch", headers=headers, data=payload)
+                            time.sleep(10)
+
+                        else:
+                            # Chrome is running but we can't connect, wait a bit before retrying
+                            logger.info("Chrome with remote debugging is running, waiting 10 seconds before retry...")
+                            time.sleep(10)
+                    else:
+                        # Last attempt failed
+                        logger.error(f"Failed to connect to Chrome after {main_attempt + 1} main attempts: {e}")
+                        raise e
+            
+            if not browser:
+                logger.error("Failed to connect to browser")
+                return
+
+            for context in browser.contexts:
+                # 清 Cookie（按上下文）
+                context.clear_cookies()
+
+                # 发 CDP 清缓存
+                # 对每个已有页面开 CDP session，然后调用 Network.clearBrowserCache
+                for page in context.pages:
+                    session = context.new_cdp_session(page)
+                    session.send("Network.clearBrowserCache")
+
+                    # 也可对当前页 origin 清本地存储：
+                    origin = page.url.split("/", 3)[:3]
+                    if len(origin) == 3 and origin[0].startswith("http"):
+                        session.send("Storage.clearDataForOrigin", {
+                            "origin": "/".join(origin),
+                            "storageTypes": "all"
+                        })
+            
+            logger.info("All browsing data cleared successfully via CDP")
+            logger.info("About to close Chrome:")
+            browser.close()
+            logger.info("Chrome has been closed")
+
+            #ensure chrome is closed
+            try:
+                # Use ps aux | grep -i chrome to check for Chrome processes
+                check_command = "ps aux | grep -i chrome | grep remote-debugging-port | grep -v grep"
+                payload = json.dumps({"command": check_command, "shell": True})
+                headers = {"Content-Type": "application/json"}
+                response = requests.post(backend_url + "/execute", headers=headers, data=payload)
+                
+                if response.status_code == 200:
+                    result = response.json()
+                    output = result.get("output", "").strip()
+                    # 检查输出是否包含实际的Chrome进程，而不是grep命令本身
+                    if output and len(output) > 0 and ("chrome" in output):
+                        logger.info(f"Found existing Chrome processes with remote debugging: {output}")
+                        
+                        # Extract PIDs and kill processes one by one
+                        lines = output.split('\n')
+                        pids_to_kill = []
+                        
+                        for line in lines:
+                            if line.strip() and ("chrome" in line):
+                                # Split by whitespace and get the second column (PID)
+                                parts = line.split()
+                                if len(parts) >= 2:
+                                    try:
+                                        pid = int(parts[1])
+                                        pids_to_kill.append(pid)
+                                    except ValueError:
+                                        logger.warning(f"Could not extract PID from line: {line}")
+                        
+                        # Kill each process
+                        for pid in pids_to_kill:
+                            try:
+                                kill_command = f"kill -9 {pid}"
+                                kill_payload = json.dumps({"command": kill_command, "shell": True})
+                                kill_response = requests.post(backend_url + "/execute", headers=headers, data=kill_payload)
+                                
+                                if kill_response.status_code == 200:
+                                    kill_result = kill_response.json()
+                                    if kill_result.get("returncode") == 0:
+                                        logger.info(f"Successfully killed Chrome process with PID {pid}")
+                                    else:
+                                        logger.warning(f"Failed to kill process {pid}: {kill_result.get('error', 'Unknown error')}")
+                                else:
+                                    logger.warning(f"Failed to send kill command for PID {pid}: HTTP {kill_response.status_code}")
+                            except Exception as kill_e:
+                                logger.warning(f"Exception while killing process {pid}: {kill_e}")
+                        
+                        chrome_with_debug_running = True if pids_to_kill else False
+                    else:
+                        logger.info("No Chrome processes with remote debugging found")
+                else:
+                    logger.info("No Chrome processes with remote debugging found (request failed)")
+            except Exception as check_e:
+                            logger.warning(f"Failed to check running processes: {check_e}")      
+            
+            # Wait 5 seconds for Chrome to close
+            logger.info("Waiting 5 seconds for Chrome to close...")
+            time.sleep(5)
+
     def _update_browse_history_setup(self, **config):
         cache_path = os.path.join(self.cache_dir, "history_new.sqlite")
         db_url = "https://drive.usercontent.google.com/u/0/uc?id=1Lv74QkJYDWVX0RIgg0Co-DUcoYpVL0oX&export=download" # google drive

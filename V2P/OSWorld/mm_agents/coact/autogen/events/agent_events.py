@@ -190,7 +190,14 @@ class ToolCallEvent(BasePrintReceivedEvent):
         super().print(f)
 
         if self.content is not None:
-            f(self.content[0]['text'], flush=True)
+            # Handle different content types safely
+            if isinstance(self.content, list) and len(self.content) > 0:
+                if isinstance(self.content[0], dict) and 'text' in self.content[0]:
+                    f(self.content[0]['text'], flush=True)
+                else:
+                    f(str(self.content[0]), flush=True)
+            else:
+                f(str(self.content), flush=True)
 
         for tool_call in self.tool_calls:
             tool_call.print(f)

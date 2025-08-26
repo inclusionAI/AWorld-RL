@@ -9,6 +9,14 @@ import openai
 from desktop_env.desktop_env import DesktopEnv
 from openai import OpenAI  # pip install --upgrade openai>=1.30
 
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # If python-dotenv is not installed, we'll use os.getenv directly
+    pass
+
 logger = logging.getLogger("desktopenv")
 
 GPT4O_INPUT_PRICE_PER_1M_TOKENS = 3.00
@@ -159,7 +167,15 @@ def run_cua(
     truncate_history_inputs: int = 100,
     client_password: str = "",
 ) -> Tuple[str, float]:
-    client = OpenAI()
+    # Get API key and base URL from environment variables
+    api_key = os.getenv("CUA_OPENAI_API_KEY")
+    base_url = os.getenv("CUA_BASE_URL")
+    
+    if not api_key:
+        logger.warning("CUA_OPENAI_API_KEY not found in environment variables")
+    
+    # Initialize OpenAI client with API key and base URL from .env
+    client = OpenAI(api_key=api_key, base_url=base_url)
 
     # 0 / reset & first screenshot
     logger.info(f"Instruction: {instruction}")

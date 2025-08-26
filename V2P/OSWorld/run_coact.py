@@ -15,7 +15,6 @@ from multiprocessing import Pool, cpu_count
 from functools import partial
 import sys
 
-
 TASK_DESCRIPTION = """# Your role
 You are a task solver, you need to complete a computer-using task step-by-step.
 1. Describe the screenshot.
@@ -84,11 +83,12 @@ def config() -> argparse.Namespace:
     # logging related
     parser.add_argument("--result_dir", type=str, default="./results_coact")
     parser.add_argument("--num_envs", type=int, default=1, help="Number of environments to run in parallel")
-    parser.add_argument("--log_level", type=str, choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'], 
-                       default='INFO', help="Set the logging level")
+    parser.add_argument("--log_level", type=str, choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+                        default='INFO', help="Set the logging level")
 
     args = parser.parse_args()
     return args
+
 
 args = config()
 
@@ -128,33 +128,58 @@ logger.addHandler(stdout_handler)
 logger = logging.getLogger("desktopenv.expeiment")
 
 
-def process_task(task_info, 
-                provider_name,
-                path_to_vm,
-                orchestrator_model="o3",
-                coding_model='o4-mini',
-                save_dir='results',
-                orchestrator_max_steps=15,
-                cua_max_steps=25,
-                coding_max_steps=20,
-                cut_off_steps=150,
-                screen_width=1920,
-                screen_height=1080,
-                sleep_after_execution=0.5,
-                config_path="OAI_CONFIG_LIST",
-                region="us-east-1",
-                client_password="",
-                ):
+def process_task(task_info,
+                 provider_name,
+                 path_to_vm,
+                 orchestrator_model="o3",
+                 coding_model='o4-mini',
+                 save_dir='results',
+                 orchestrator_max_steps=15,
+                 cua_max_steps=25,
+                 coding_max_steps=20,
+                 cut_off_steps=150,
+                 screen_width=1920,
+                 screen_height=1080,
+                 sleep_after_execution=0.5,
+                 config_path="OAI_CONFIG_LIST",
+                 region="us-east-1",
+                 client_password="",
+                 ):
     """Worker function to process a single task"""
     domain, ex_id, cfg = task_info
-    
+
     # Recreate llm_config inside the worker process
-    llm_config = LLMConfig.from_json(path=config_path).where(model=orchestrator_model)
+    from mm_agents.coact.autogen.oai.openai_utils import config_list_from_dotenv
     
+    # Define model to API key mapping for OpenRouter
+    model_api_key_map = {
+        "openai/gpt-4o": "OPENROUTER_API_KEY",
+        "openai/o3": "OPENROUTER_API_KEY", 
+        "openai/o4-mini": "OPENROUTER_API_KEY",
+        "openai/gpt-4.1": "OPENROUTER_API_KEY",
+        "openai/o3-mini": "OPENROUTER_API_KEY"
+    }
+    
+    # Load config using dotenv approach
+    config_list = config_list_from_dotenv(model_api_key_map=model_api_key_map)
+    
+    # Add base_url and api_type to all configs for OpenRouter
+    for config in config_list:
+        config["base_url"] = "https://openrouter.ai/api/v1"
+        config["api_type"] = "openai"
+    
+    # Filter for the specific model we need
+    # filtered_config = [config for config in config_list if config["model"] == orchestrator_model]
+    
+    # if not filtered_config:
+    #     raise ValueError(f"Model {orchestrator_model} not found in config_list")
+    
+    llm_config = LLMConfig(config_list=config_list)
+
     history_save_dir = os.path.join(save_dir, "coact", f"{domain}/{ex_id}")
     if not os.path.exists(history_save_dir):
         os.makedirs(history_save_dir)
-    
+
     task_config = json.load(open(cfg))
     retry = 0
 
@@ -167,7 +192,9 @@ def process_task(task_info,
                 )
                 orchestrator_proxy = OrchestratorUserProxyAgent(
                     name="orchestrator_proxy",
-                    is_termination_msg=lambda x: x.get("content", "") and (x.get("content", "")[0]["text"].lower() == "terminate" or x.get("content", "")[0]["text"].lower() == "infeasible"),
+                    is_termination_msg=lambda x: x.get("content", "") and (
+                                x.get("content", "")[0]["text"].lower() == "terminate" or x.get("content", "")[0][
+                            "text"].lower() == "infeasible"),
                     human_input_mode="NEVER",
                     provider_name=provider_name,
                     path_to_vm=path_to_vm,
@@ -176,6 +203,7 @@ def process_task(task_info,
                     sleep_after_execution=sleep_after_execution,
                     code_execution_config=False,
                     history_save_dir=history_save_dir,
+                    llm_config=llm_config,
                     llm_model=coding_model,
                     truncate_history_inputs=cua_max_steps + 1,
                     cua_max_steps=cua_max_steps,
@@ -191,15 +219,16 @@ def process_task(task_info,
 
             with open(os.path.join(history_save_dir, f'initial_screenshot_orchestrator.png'), "wb") as f:
                 f.write(screenshot)
-                
+
             orchestrator_proxy.initiate_chat(
                 recipient=orchestrator,
                 message=f"""{task_config["instruction"]}
 Check my computer screenshot and describe it first. If this task is possible to complete, please complete it on my computer. If not, reply with "INFEASIBLE" to end the conversation.
-I will not provide further information to you.""" + "<img data:image/png;base64," + base64.b64encode(screenshot).decode("utf-8") + ">",
+I will not provide further information to you.""" + "<img data:image/png;base64," + base64.b64encode(screenshot).decode(
+                    "utf-8") + ">",
                 max_turns=orchestrator_max_steps
             )
-            
+
             chat_history = []
             key = list(orchestrator_proxy.chat_messages.keys())[0]
             chat_messages = orchestrator_proxy.chat_messages[key]
@@ -210,7 +239,7 @@ I will not provide further information to you.""" + "<img data:image/png;base64,
                         if msg.get('type', None) == 'image_url':
                             msg['image_url'] = "<image>"
                 chat_history.append(item)
-            
+
             with open(os.path.join(history_save_dir, f'chat_history.json'), "w") as f:
                 json.dump(chat_history, f)
 
@@ -229,11 +258,11 @@ I will not provide further information to you.""" + "<img data:image/png;base64,
             else:
                 score = orchestrator_proxy.env.evaluate()
             print(f"Score: {score}")
-            
+
             with open(os.path.join(history_save_dir, f'result.txt'), "w") as f:
                 f.write(str(score))
             break
-                    
+
         except Exception as e:
             retry += 1
             if retry < 3:
@@ -253,7 +282,7 @@ I will not provide further information to you.""" + "<img data:image/png;base64,
         finally:
             if orchestrator_proxy.env is not None:
                 orchestrator_proxy.env.close()
-    
+
     return domain, score
 
 
@@ -298,13 +327,13 @@ if __name__ == "__main__":
         print(f"Processing {len(tasks)} tasks with {num_workers} workers...")
 
         # Create a partial function with fixed config_path, model and debug
-        process_func = partial(process_task, 
+        process_func = partial(process_task,
                                provider_name=args.provider_name,
                                path_to_vm=args.path_to_vm,
                                save_dir=args.result_dir,
                                coding_model=args.coding_model,
                                orchestrator_model=args.orchestrator_model,
-                               config_path=args.oai_config_path, 
+                               config_path=args.oai_config_path,
                                orchestrator_max_steps=args.orchestrator_max_steps,
                                cua_max_steps=args.cua_max_steps,
                                coding_max_steps=args.coding_max_steps,

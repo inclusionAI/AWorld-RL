@@ -283,6 +283,12 @@ class DesktopEnv(gym.Env):
                     self.setup_controller._proxy_setup(self.client_password)
                 self._set_task_info(task_config)
                 self.setup_controller.reset_cache_dir(self.cache_dir)
+                logger.info("Clearing browser cache and browsing data...")
+                try:
+                    self.setup_controller._delete_all_browsing_data_chromium_setup()
+                    logger.info("Browser cache cleared successfully")
+                except Exception as e:
+                    logger.warning(f"Failed to clear browser cache: {e}")
                 logger.info("Setting up environment...")
                 success = self.setup_controller.setup(self.config, task_config.get("proxy", False) and self.enable_proxy)
                 if success:

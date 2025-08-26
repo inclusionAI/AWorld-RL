@@ -134,13 +134,13 @@ def _install_vm(vm_name, vms_dir, downloaded_file_name, os_type, original_vm_nam
         elif os_type == "Windows":
             if platform.machine().lower() in ['amd64', 'x86_64']:
                 URL = WINDOWS_X86_URL
-        
+
         # Check for HF_ENDPOINT environment variable and replace domain if set to hf-mirror.com
         hf_endpoint = os.environ.get('HF_ENDPOINT')
         if hf_endpoint and 'hf-mirror.com' in hf_endpoint:
             URL = URL.replace('huggingface.co', 'hf-mirror.com')
             logger.info(f"Using HF mirror: {URL}")
-        
+
         DOWNLOADED_FILE_NAME = URL.split('/')[-1]
         downloaded_file_name = DOWNLOADED_FILE_NAME
 
@@ -440,10 +440,10 @@ class VMwareVMManager(VMManager):
                 allocation_needed = True
             else:
                 # Choose the first free virtual machine
-                chosen_vm_path = free_vms_paths[0][0] 
+                chosen_vm_path = free_vms_paths[0][0]
                 self._occupy_vm(chosen_vm_path, os.getpid())
                 return chosen_vm_path
-            
+
         if allocation_needed:
             logger.info("No free virtual machine available. Generating a new one, which would take a while...☕")
             new_vm_name = generate_new_vm_name(vms_dir=VMS_DIR, os_type=os_type)
@@ -455,7 +455,8 @@ class VMwareVMManager(VMManager):
                 original_vm_name = "Windows 10 x64"
 
             new_vm_path = _install_vm(new_vm_name, vms_dir=VMS_DIR,
-                                    downloaded_file_name=DOWNLOADED_FILE_NAME, original_vm_name=original_vm_name, os_type=os_type)
+                                      downloaded_file_name=DOWNLOADED_FILE_NAME, original_vm_name=original_vm_name,
+                                      os_type=os_type)
             with self.lock:
                 self._add_vm(new_vm_path)
                 self._occupy_vm(new_vm_path, os.getpid())

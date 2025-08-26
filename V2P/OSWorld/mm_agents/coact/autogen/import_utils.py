@@ -62,17 +62,46 @@ class ModuleInfo:
             msg = f"'{self.name}' is installed, but the installed version {installed_version} is too low (required '{self}')."
             if not self.min_inclusive and installed_version == self.min_version:
                 return msg
-            if self.min_inclusive and installed_version < self.min_version:  # type: ignore[operator]
+            if self.min_inclusive and self._compare_versions(installed_version, self.min_version) < 0:
                 return msg
 
         if self.max_version:
             msg = f"'{self.name}' is installed, but the installed version {installed_version} is too high (required '{self}')."
             if not self.max_inclusive and installed_version == self.max_version:
                 return msg
-            if self.max_inclusive and installed_version > self.max_version:  # type: ignore[operator]
+            if self.max_inclusive and self._compare_versions(installed_version, self.max_version) > 0:
                 return msg
 
         return None
+
+    def _compare_versions(self, version1: str, version2: str) -> int:
+        """Compare two version strings semantically
+        
+        Args:
+            version1: First version string
+            version2: Second version string
+            
+        Returns:
+            -1 if version1 < version2, 0 if equal, 1 if version1 > version2
+        """
+        from packaging import version as pkg_version
+        try:
+            v1 = pkg_version.parse(version1)
+            v2 = pkg_version.parse(version2)
+            if v1 < v2:
+                return -1
+            elif v1 > v2:
+                return 1
+            else:
+                return 0
+        except Exception:
+            # Fallback to string comparison if packaging fails
+            if version1 < version2:
+                return -1
+            elif version1 > version2:
+                return 1
+            else:
+                return 0
 
     def __repr__(self) -> str:
         s = self.name
