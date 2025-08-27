@@ -210,12 +210,23 @@ def process_task(task_info,
         config["api_type"] = "openai"
     
     # Filter for the specific model we need
-    # filtered_config = [config for config in config_list if config["model"] == orchestrator_model]
+    filtered_config = [config for config in config_list if config["model"] == orchestrator_model]
     
     # if not filtered_config:
     #     raise ValueError(f"Model {orchestrator_model} not found in config_list")
     
-    llm_config = LLMConfig(config_list=config_list)
+
+    config_list_yishan = [
+        # OpenAI GPT-4 配置
+        {
+            "model": "openai/o3",
+            "api_key": os.environ.get("OPENAI_API_KEY"),
+            "base_url": os.environ.get("OPENAI_BASE_URL"),
+            "api_type": "openai"
+        }
+    ]
+
+    llm_config = LLMConfig(config_list=config_list_yishan)
 
     history_save_dir = os.path.join(save_dir, "coact", f"{domain}/{ex_id}")
     if not os.path.exists(history_save_dir):

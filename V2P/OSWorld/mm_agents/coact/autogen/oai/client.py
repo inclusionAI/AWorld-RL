@@ -496,7 +496,11 @@ class OpenAIClient:
             The completion.
         """
         iostream = IOStream.get_default()
-
+        # modified by yishan.wd
+        print(f"OPENAIClient.create:  === Full Params Values ===")
+        for key, value in params.items():
+            print(f"{key}: {value}")
+        print(f"=== End Full Params Values ===")
         if self.response_format is not None or "response_format" in params:
 
             def _create_or_parse(*args, **kwargs):
@@ -653,6 +657,50 @@ class OpenAIClient:
                     raise ModelToolNotSupportedError(params.get("model"))
                 self._process_reasoning_model_params(params)
             params["stream"] = False
+            # modified by yishan.wd
+            # 打印出所有的params
+            print(f"=== API Call Parameters ===")
+            print(f"Model: {params.get('model', 'N/A')}")
+            print(f"API Type: {params.get('api_type', 'N/A')}")
+            print(f"Base URL: {params.get('base_url', 'N/A')}")
+            print(f"Temperature: {params.get('temperature', 'N/A')}")
+            print(f"Max Tokens: {params.get('max_tokens', 'N/A')}")
+            print(f"Top P: {params.get('top_p', 'N/A')}")
+            print(f"Messages Count: {len(params.get('messages', []))}")
+            if params.get('messages'):
+                print(f"First Message Role: {params['messages'][0].get('role', 'N/A')}")
+                print(f"Last Message Role: {params['messages'][-1].get('role', 'N/A')}")
+            print(f"Tools Count: {len(params.get('tools', []))}")
+            print(f"All Params Keys: {list(params.keys())}")
+            print(f"=== Full Params Values ===")
+            for key, value in params.items():
+                if key == 'messages':
+                    print(f"Messages ({len(value)} items):")
+                    for i, msg in enumerate(value):
+                        print(f"  [{i}] Role: {msg.get('role', 'N/A')}")
+                        if isinstance(msg.get('content'), list):
+                            print(f"      Content: {len(msg['content'])} items")
+                            for j, content_item in enumerate(msg['content']):
+                                if content_item.get('type') == 'text':
+                                    text = content_item.get('text', '')[:100] + '...' if len(content_item.get('text', '')) > 100 else content_item.get('text', '')
+                                    print(f"        [{j}] Text: {text}")
+                                elif content_item.get('type') == 'image_url':
+                                    print(f"        [{j}] Image URL: {content_item.get('image_url', {}).get('url', '')[:50]}...")
+                        else:
+                            text = str(msg.get('content', ''))[:100] + '...' if len(str(msg.get('content', ''))) > 100 else str(msg.get('content', ''))
+                            print(f"      Content: {text}")
+                elif key == 'tools':
+                    print(f"Tools ({len(value)} items):")
+                    for i, tool in enumerate(value):
+                        print(f"  [{i}] Type: {tool.get('type', 'N/A')}")
+                        if tool.get('function'):
+                            print(f"      Function: {tool['function'].get('name', 'N/A')}")
+                elif key == 'api_key':
+                    print(f"API Key: {'*' * 10}{value[-4:] if value else 'N/A'}")
+                else:
+                    print(f"{key}: {value}")
+            print(f"=== End Full Params Values ===")
+            print(f"=== End API Call Parameters ===")
             response = create_or_parse(**params)
             # remove the system_message from the response and add it in the prompt at the start.
             if is_o1:
