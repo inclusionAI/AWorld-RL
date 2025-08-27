@@ -14,7 +14,8 @@ import logging
 from multiprocessing import Pool, cpu_count
 from functools import partial
 import sys
-
+from dotenv import load_dotenv
+load_dotenv()
 TASK_DESCRIPTION = """# Your role
 You are a task solver, you need to complete a computer-using task step-by-step.
 1. Describe the screenshot.
@@ -221,7 +222,7 @@ def process_task(task_info,
         {
             "model": "openai/o3",
             "api_key": os.environ.get("OPENAI_API_KEY"),
-            "base_url": os.environ.get("OPENAI_BASE_URL"),
+            "base_url": "https://openrouter.ai/api/v1",
             "api_type": "openai"
         }
     ]
@@ -241,7 +242,8 @@ def process_task(task_info,
             with llm_config:
                 orchestrator = OrchestratorAgent(
                     name="orchestrator",
-                    system_message=TASK_DESCRIPTION
+                    system_message=TASK_DESCRIPTION,
+                    llm_config=llm_config
                 )
                 orchestrator_proxy = OrchestratorUserProxyAgent(
                     name="orchestrator_proxy",
