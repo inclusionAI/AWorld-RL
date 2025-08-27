@@ -267,7 +267,7 @@ class OrchestratorUserProxyAgent(MultimodalConversableAgent):
             screenshot = self.env.controller.get_screenshot()
             coding_agent = MultimodalConversableAgent(
                 name="coding_agent",
-                llm_config=LLMConfig(api_type="openai", model=self.llm_model),
+                llm_config=LLMConfig(api_type="openai", model=self.llm_model, api_key=os.environ.get("OPENAI_API_KEY"), base_url=os.environ.get("OPENAI_BASE_URL_SHORT")),
                 system_message=CODER_SYSTEM_MESSAGE.format(CLIENT_PASSWORD=self.client_password),
             )
             code_interpreter = TerminalProxyAgent(
@@ -281,6 +281,7 @@ class OrchestratorUserProxyAgent(MultimodalConversableAgent):
                 max_consecutive_auto_reply = None,
                 default_auto_reply = default_auto_reply,
                 description = None,
+                llm_config=LLMConfig(api_type="openai", model=self.llm_model, api_key=os.environ.get("OPENAI_API_KEY"), base_url=os.environ.get("OPENAI_BASE_URL_SHORT")),
                 is_termination_msg=lambda x: x.get("content", "") and x.get("content", "")[0]["text"].lower() == "terminate",
                 env=self.env,
             )
@@ -309,7 +310,7 @@ class OrchestratorUserProxyAgent(MultimodalConversableAgent):
             # Review the group chat history
             summarizer = ConversableAgent(
                 name="summarizer",
-                llm_config=LLMConfig(api_type="openai", model=self.llm_model),
+                llm_config=LLMConfig(api_type="openai", model=self.llm_model, api_key=os.environ.get("OPENAI_API_KEY"), base_url=os.environ.get("OPENAI_BASE_URL_SHORT")),
                 system_message=self.CONVERSATION_REVIEW_PROMPT,
             )
             summarized_history = summarizer.generate_oai_reply(
