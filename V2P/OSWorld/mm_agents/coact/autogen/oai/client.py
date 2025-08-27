@@ -496,11 +496,6 @@ class OpenAIClient:
             The completion.
         """
         iostream = IOStream.get_default()
-        # modified by yishan.wd
-        print(f"OPENAIClient.create:  === Full Params Values ===")
-        for key, value in params.items():
-            print(f"{key}: {value}")
-        print(f"=== End Full Params Values ===")
         if self.response_format is not None or "response_format" in params:
 
             def _create_or_parse(*args, **kwargs):
