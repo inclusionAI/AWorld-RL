@@ -125,7 +125,45 @@ logger.addHandler(debug_handler)
 logger.addHandler(stdout_handler)
 #  }}} Logger Configs #
 
-logger = logging.getLogger("desktopenv.expeiment")
+logger = logging.getLogger("desktopenv.experiment")
+
+
+def setup_logger():
+    """Setup logger for child processes with process-specific log files"""
+    import multiprocessing
+    
+    # Use process-specific logger name to avoid conflicts
+    process_name = multiprocessing.current_process().name
+    process_logger_name = f"desktopenv.experiment.{process_name}"
+    logger = logging.getLogger(process_logger_name)
+    
+    if not logger.handlers:  # Avoid duplicate handlers
+        log_level = logging.INFO
+        datetime_str = datetime.datetime.now().strftime("%Y%m%d@%H%M%S")
+        
+        # Create process-specific log files to avoid file conflicts
+        file_handler = logging.FileHandler(
+            os.path.join("logs", f"normal-{datetime_str}-{process_name}.log"), encoding="utf-8"
+        )
+        debug_handler = logging.FileHandler(
+            os.path.join("logs", f"debug-{datetime_str}-{process_name}.log"), encoding="utf-8"
+        )
+        
+        file_handler.setLevel(logging.INFO)
+        debug_handler.setLevel(logging.DEBUG)
+        
+        formatter = logging.Formatter(
+            fmt="[%(asctime)s %(levelname)s %(module)s/%(lineno)d-%(processName)s] %(message)s"
+        )
+        file_handler.setFormatter(formatter)
+        debug_handler.setFormatter(formatter)
+        
+        logger.addHandler(file_handler)
+        logger.addHandler(debug_handler)
+        logger.setLevel(log_level)
+        logger.propagate = False
+    
+    return logger
 
 
 def process_task(task_info,
@@ -146,6 +184,9 @@ def process_task(task_info,
                  client_password="",
                  ):
     """Worker function to process a single task"""
+    # Setup logger for this subprocess
+    logger = setup_logger()
+    
     domain, ex_id, cfg = task_info
 
     # Recreate llm_config inside the worker process
@@ -181,6 +222,7 @@ def process_task(task_info,
         os.makedirs(history_save_dir)
 
     task_config = json.load(open(cfg))
+    logger.info(f"Processing task {domain}/{ex_id}: {task_config.get('instruction', 'No instruction')}")
     retry = 0
 
     while True:
@@ -257,10 +299,11 @@ I will not provide further information to you.""" + "<img data:image/png;base64,
                 score = 0.0
             else:
                 score = orchestrator_proxy.env.evaluate()
-            print(f"Score: {score}")
+            logger.info(f"Score: {score}")
 
             with open(os.path.join(history_save_dir, f'result.txt'), "w") as f:
                 f.write(str(score))
+            logger.info(f"Task {domain}/{ex_id} completed successfully")
             break
 
         except Exception as e:
@@ -268,20 +311,22 @@ I will not provide further information to you.""" + "<img data:image/png;base64,
             if retry < 3:
                 shutil.rmtree(history_save_dir)
                 os.makedirs(history_save_dir)
-                print(f"Retry {retry} times, error: {str(e)}")
+                logger.warning(f"Retry {retry} times, error: {str(e)}")
                 traceback.print_exc()
                 continue
 
-            print(f"Error processing task {domain}/{ex_id}")
+            logger.error(f"Error processing task {domain}/{ex_id}")
             traceback.print_exc()
             score = 0.0
             with open(os.path.join(history_save_dir, f'result.txt'), "w") as f:
                 f.write(str(score))
             with open(os.path.join(history_save_dir, f'err_reason.txt'), "w") as f:
                 f.write(f"Fatal error: {str(e)}")
+            logger.error(f"Task {domain}/{ex_id} failed with fatal error")
         finally:
             if orchestrator_proxy.env is not None:
                 orchestrator_proxy.env.close()
+                logger.debug(f"Environment closed for task {domain}/{ex_id}")
 
     return domain, score
 
@@ -301,15 +346,15 @@ if __name__ == "__main__":
         for ex_id in test_all_meta[domain]:
             if os.path.exists(os.path.join(args.result_dir, 'coact', f"{domain}/{ex_id}/result.txt")):
                 result = open(os.path.join(args.result_dir, 'coact', f"{domain}/{ex_id}/result.txt"), "r").read()
-                print(f"Results already exist in {domain}/{ex_id}, result: {result}")
+                logger.info(f"Results already exist in {domain}/{ex_id}, result: {result}")
                 continue
             cfg = os.path.join(args.test_config_base_dir, f"{domain}/{ex_id}.json")
             tasks.append((domain, ex_id, cfg))
     # Check if there are any tasks to process
     if not tasks:
-        print("No tasks to process. All tasks have already been completed.")
+        logger.info("No tasks to process. All tasks have already been completed.")
         # Print summary of existing results
-        print("\n=== Summary of Existing Results ===")
+        logger.info("\n=== Summary of Existing Results ===")
         for domain in test_all_meta:
             domain_scores = []
             for ex_id in test_all_meta[domain]:
@@ -319,12 +364,12 @@ if __name__ == "__main__":
                         domain_scores.append(float(f.read()))
             if domain_scores:
                 avg_score = sum(domain_scores) / len(domain_scores)
-                print(f"{domain}: {len(domain_scores)} tasks, average score: {avg_score:.2f}")
+                logger.info(f"{domain}: {len(domain_scores)} tasks, average score: {avg_score:.2f}")
     else:
         # Use multiprocessing to process tasks in parallel
         # Determine number of workers (you can adjust this based on your system)
         num_workers = min(cpu_count() // 2, args.num_envs)  # Use half of CPU cores, max 4
-        print(f"Processing {len(tasks)} tasks with {num_workers} workers...")
+        logger.info(f"Processing {len(tasks)} tasks with {num_workers} workers...")
 
         # Create a partial function with fixed config_path, model and debug
         process_func = partial(process_task,
@@ -354,8 +399,8 @@ if __name__ == "__main__":
             scores[domain].append(score)
 
         # Print summary
-        print("\n=== Task Processing Complete ===")
+        logger.info("\n=== Task Processing Complete ===")
         for domain in scores:
             if scores[domain]:
                 avg_score = sum(scores[domain]) / len(scores[domain])
-                print(f"{domain}: {len(scores[domain])} tasks, average score: {avg_score:.2f}")
+                logger.info(f"{domain}: {len(scores[domain])} tasks, average score: {avg_score:.2f}")

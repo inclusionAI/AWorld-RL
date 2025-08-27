@@ -205,7 +205,7 @@ class OrchestratorUserProxyAgent(MultimodalConversableAgent):
             screen_size=screen_size,
             headless=True,
             require_a11y_tree=observation_type in ["a11y_tree", "screenshot_a11y_tree", "som"],
-            enable_proxy=True,
+            enable_proxy=False,
             client_password=client_password
         )
 
