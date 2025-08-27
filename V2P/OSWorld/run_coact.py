@@ -206,7 +206,7 @@ def process_task(task_info,
     
     # Add base_url and api_type to all configs for OpenRouter
     for config in config_list:
-        config["base_url"] = "https://openrouter.ai/api/v1"
+        config["base_url"] = "https://openrouter.ai/api/v1/chat/completions"
         config["api_type"] = "openai"
     
     # Filter for the specific model we need

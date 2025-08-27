@@ -271,7 +271,9 @@ class SetupController:
             command = command.split()
             
         if command[0] == "google-chrome" and self.use_proxy:
-            command.append("--proxy-server=http://127.0.0.1:18888")  # Use the proxy server set up by _proxy_setup
+            proxy_arg = "--proxy-server=http://127.0.0.1:18888"
+            if proxy_arg not in command:
+                command.append(proxy_arg)  # Use the proxy server set up by _proxy_setup
 
         payload = json.dumps({"command": command, "shell": shell})
         headers = {"Content-Type": "application/json"}
