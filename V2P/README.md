@@ -16,7 +16,7 @@
 
 # 💡 Overview
 
-**Valley-to-Peak (V2P)** is a novel training method for precise GUI element localization. Unlike traditional approaches relying on coarse bounding boxes or center-point regression, V2P addresses spatial uncertainties and visual-semantic hierarchies in GUI tasks. Also, by introducing a suppression attention mechanism and Fitts’ Law-inspired Gaussian heatmap labels, V2P both minimizes distractions from background regions and distinguishes between element centers and edges. Evaluated on the ScreenSpot-v2 and ScreenSpot-Pro benchmarks, V2P achieves **92.3%** and **50.5%** accuracy, respectively.
+**Valley-to-Peak (V2P)** is a novel training method for precise GUI element localization. Unlike traditional approaches relying on coarse bounding boxes or center-point regression, V2P addresses spatial uncertainties and visual-semantic hierarchies in GUI tasks. Also, by introducing a suppression attention mechanism and Fitts’ Law-inspired Gaussian heatmap labels, V2P both minimizes distractions from background regions and distinguishes between element centers and edges. Evaluated on the ScreenSpot-v2 and ScreenSpot-Pro benchmarks, V2P achieves **92.4%** and **52.5%** accuracy, respectively.
 
 - Paper: [arxiv](https://arxiv.org/abs/2508.13634)
 - Model: [huggingface](https://huggingface.co/Minstrel54524/V2P-7B)
