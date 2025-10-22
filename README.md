@@ -6,12 +6,28 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 
 </div>
 
----
+<p align="center">
+<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2508.13634" target="_blank">arXiv(V2P)</a> ｜
+<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2507.02962" target="_blank">arXiv(RAG-R1)</a> ｜
+<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2505.20192" target="_blank">arXiv(FunReason)</a> ｜
+<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.10197" target="_blank">arXiv(EnvTuning)</a>
+</p>
+
+<p align="center">
+🤗 <a href="https://huggingface.co/papers/2508.13634" target="_blank">Paper(V2P)</a> ｜
+🤗 <a href="https://huggingface.co/papers/2507.02962" target="_blank">Paper(RAG-R1)</a> ｜
+🤗 <a href="https://huggingface.co/papers/2505.20192" target="_blank">Paper(FunReason)</a> ｜
+🤗 <a href="https://huggingface.co/papers/2510.10197" target="_blank">Paper(EnvTuning)</a>
+</p>
+
+<p align="center">
+<img src="./assets/xiaohongshu.png" width="14px" style="display:inline;"> <a href="http://xhslink.com/o/A5W5duyHWlf" target="_blank">EnvTuning</a>
+</p>
 
 ## 📣 News
-[2025/08/19] 🔥🔥🔥[**V2P**](https://github.com/inclusionAI/AgenticLearning/blob/main/V2P/README.md) We propose **V2P**, a novel training method for multi-modal models that enables coordinate-free, human-like visual GUI Grounding.
+[2025/08/19] 🔥🔥🔥[**V2P**](./V2P) We propose **V2P**, a novel training method for multi-modal models that enables coordinate-free, human-like visual GUI Grounding.
 
-[2025/07/01] 🔥🔥🔥[**RAG-R1**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
+[2025/07/01] 🔥🔥🔥[**RAG-R1**](./RAG-R1) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
 
 [2025/05/16] 🔥🔥🔥[**FunReason**](https://github.com/BingguangHao/FunReason/) We propose **FunReason**, a novel framework that enhances LLMs' function calling capabilities through an automated data refinement strategy and a Self-Refinement Multiscale Loss approach.
 
@@ -25,6 +41,10 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 
 ## 🚀 Projects
 
+**[Don't Just Fine-tune the Agent, Tune the Environment](./EnvTuning)**  
+**Authors:** Siyuan Lu, Zechuan Wang, Hongxuan Zhang, Qintong Wu, Leilei Gan, Chenyi Zhuang, Jinjie Gu, Tao Lin  
+[![arXiv](https://img.shields.io/badge/arXiv-2510.10197-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.10197) [![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2510.10197)
+
 **[V2P: From Background Suppression to Center Peaking for Robust GUI Grounding](./V2P)**  
 **Authors:** Jikai Chen, Long Chen, Dong Wang, Leilei Gan, Chenyi Zhuang, Jinjie Gu  
 [![arXiv](https://img.shields.io/badge/arXiv-2508.13634-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2508.13634) [![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2508.13634) [![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/inclusionAI/V2P-7B)
@@ -36,7 +56,7 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 **[FunReason: Enhancing Large Language Models' Function Calling via Self-Refinement Multiscale Loss and Automated Data Refinement](https://github.com/BingguangHao/FunReason/)**  
 **Authors:** Bingguang Hao, Maolin Wang, Zengzhuang Xu, Cunyin Peng, Yicheng Chen, Xiangyu Zhao, Jinjie Gu, Chenyi Zhuang  
 [![arXiv](https://img.shields.io/badge/arXiv-2505.20192-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2505.20192) [![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2505.20192)
-                                                
+                         
 ## 📚 Overview
 
 ### Table of Contents
@@ -49,7 +69,7 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
   - [FunReason](#funreason)
 
 ### Multi-Modal
-#### [V2P](https://github.com/inclusionAI/AgenticLearning/blob/main/V2P/README.md) 
+#### [V2P](./V2P) 
 
 - Tools: PyAutoGUI Tools
 - LLM: Qwen2.5-7b-instruct
@@ -65,7 +85,7 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 
 ### Deepsearch
 
-#### [RAG-R1](RAG-R1/README.md)
+#### [RAG-R1](./RAG-R1)
 
 - Tools: Search Engines (offline or [online](https://github.com/qingw-dev/aworld-mcp-servers))
 - LLM: Qwen2.5-7b-instruct
