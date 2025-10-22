@@ -25,6 +25,8 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 </p>
 
 ## 📣 News
+[2025/10/22] 🔥🔥🔥[**EnvTuning**](./EnvTuning) We propose **Environment Tuning**, a novel training paradigm that enables agents to learn complex multi-turn tool use behaviors through environmental interaction rather than trajectory imitation, achieving significant improvements with only 400 training samples.
+
 [2025/08/19] 🔥🔥🔥[**V2P**](./V2P) We propose **V2P**, a novel training method for multi-modal models that enables coordinate-free, human-like visual GUI Grounding.
 
 [2025/07/01] 🔥🔥🔥[**RAG-R1**](./RAG-R1) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
@@ -65,7 +67,8 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
   - [V2P](#v2p)
 - [Deepsearch](#deepsearch)
   - [RAG-R1](#rag-r1)
-- [FunctionCall](#functioncall)
+- [Tool Use](#tool-use)
+  - [Environment Tuning](#environment-tuning)
   - [FunReason](#funreason)
 
 ### Multi-Modal
@@ -74,13 +77,15 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 - Tools: PyAutoGUI Tools
 - LLM: Qwen2.5-7b-instruct
 
-![V2P-framework](V2P/assets/main.png)
+<div align="center">
+  <img src="V2P/assets/main.png" alt="V2P-framework">
+  <p>Overall framework of V2P.</p>
+</div>
 
-<h5 align="center">Overall framework of V2P.</h5>
-
-![V2P-result](V2P/assets/results.png)
-
-<h5 align="center">Performance on both SreenSpot-v2 (left) and ScreenSpot-Pro (right).</h5>
+<div align="center">
+  <img src="V2P/assets/results.png" alt="V2P-result">
+  <p>Performance on both SreenSpot-v2 (left) and ScreenSpot-Pro (right).</p>
+</div>
   
 
 ### Deepsearch
@@ -90,16 +95,39 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 - Tools: Search Engines (offline or [online](https://github.com/qingw-dev/aworld-mcp-servers))
 - LLM: Qwen2.5-7b-instruct
 
-![RAG-R1-framework](RAG-R1/assets/RAG-R1.png)
+<div align="center">
+  <img src="RAG-R1/assets/RAG-R1.png" alt="RAG-R1-framework">
+  <p>Overall framework of RAG-R1.</p>
+</div>
 
-<h5 align="center">Overall framework of RAG-R1.</h5>
+<div align="center">
+  <img src="RAG-R1/assets/RAG-R1-result.png" alt="RAG-R1-result">
+  <p>Performance comparisons on QA benchmarks under the EM metric. The best and second best results are bold and underlined, respectively.</p>
+</div>
 
-![RAG-R1-result](RAG-R1/assets/RAG-R1-result.png)
+### Tool Use
+#### [Environment Tuning](./EnvTuning)
 
-<h5 align="left">Performance comparisons on QA benchmarks under the EM metric. The best and second
-best results are bold and underlined, respectively.</h5>
+- Tools: Multi-turn Tool Use (BFCL Benchmark)
+- LLM: Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct, watt-tool-8B
 
-### FunctionCall
+Training agents for complex multi-turn tool use tasks faces critical challenges: extreme scarcity of high-quality training data, overfitting with supervised fine-tuning (SFT) on synthetic data, and cold-start problems with training instability in standard reinforcement learning approaches. **Environment Tuning** addresses these challenges through a novel training paradigm that enables agents to learn complex behaviors through environmental interaction rather than trajectory imitation, even with minimal data.
+
+<div align="center">
+  <img src="EnvTuning/assets/introduction.png" alt="EnvTuning-introduction">
+  <p>Limitations of existing paradigms (SFT overfitting and standard RL cold-start) and the advantages of Environment Tuning approach.</p>
+</div>
+
+<div align="center">
+  <img src="EnvTuning/assets/pipeline.png" alt="EnvTuning-pipeline">
+  <p>Four-stage curriculum learning pipeline with actionable environment augmentation and fine-grained progress rewards.</p>
+</div>
+
+<div align="center">
+  <img src="EnvTuning/assets/main_results.png" alt="EnvTuning-results">
+  <p>With only 400 training samples, Environment Tuning achieves significant improvements on BFCL V3.</p>
+</div>
+
 
 #### [FunReason](https://github.com/BingguangHao/FunReason/)
 
@@ -108,20 +136,29 @@ best results are bold and underlined, respectively.</h5>
 
 FunReason is a framework designed to enhance LLMs' function calling capabilities, achieving GPT-4o-comparable performance on BFCL, surpassing RL-based methods, mitigating catastrophic forgetting on HumanEval and MBPP, and using a data refinement strategy where natural CoT data outperforms artificial ones.
 
-![FunReason-Performance](FunctionCall/assets/Fun_pipline.png)
-
-<h5 align="center">Data refinement pipline of FunReason.</h5>
+<div align="center">
+  <img src="FunReason/assets/Fun_pipline.png" alt="FunReason-Performance">
+  <p>Data refinement pipeline of FunReason.</p>
+</div>
 
 **Overview of FunReason's data refinement pipeline.** The pipeline consists of five stages: Function Call Classification, Query and Tool Identification, CoT Identification, Function and Parameter Identification, and Format Identification. Each stage ensures specific aspects of data quality, with failing examples either being discarded or regenerated.
 
-![FunReason-Performance](FunctionCall/assets/Fun_per.png)
-
-<h5 align="center">Performance of FunReason.</h5>
+<div align="center">
+  <img src="FunReason/assets/Fun_per.png" alt="FunReason-Performance">
+  <p>Performance of FunReason.</p>
+</div>
 
 ## Citation
 
 Please cite our repo if our works are helpful for your research.
 ```
+@article{lu2025don,
+  title={Don't Just Fine-tune the Agent, Tune the Environment},
+  author={Lu, Siyuan and Wang, Zechuan and Zhang, Hongxuan and Wu, Qintong and Gan, Leilei and Zhuang, Chenyi and Gu, Jinjie and Lin, Tao},
+  journal={arXiv preprint arXiv:2510.10197},
+  year={2025}
+}
+
 @article{chen2025v2p,
   title={V2P: From Background Suppression to Center Peaking for Robust GUI Grounding Task},
   author={Chen, Jikai and Chen, Long and Wang, Dong and Gan, Leilei and Zhuang, Chenyi and Gu, Jinjie},
