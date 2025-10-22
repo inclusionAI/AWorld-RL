@@ -1,29 +1,53 @@
-# AgenticLearning
+<div align="center">
 
-## Introduction
+<h1 align="center">
+Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img src="assets/aworld_logo.png" alt="AWorld Logo" height="32" style="vertical-align: text-bottom; margin-right: 4px;">AWorld</a>
+</h1>
 
-Agent exhibits powerful capabilities by interacting with the external environment and making decisions based on the feedback it receives from the environment.
-For complex problems, it is often necessary for an agent to have multi-turn interactions with the environment to reach a solution. The complexity and dynamism of environments, coupled with the necessity for multi-turn interactions, pose numerous challenges in training agents.
+</div>
 
-We introduce **AgenticLearning**, an open-source agent training paradigm designed to empower researchers to train and evaluate autonomous agents effectively. AgenticLearning offers a framework for multi-turn interactions with the environment, enabling models to learn how to interact with the environment and make decisions based on its feedback, thereby enhancing the models' ability to leverage the environment to solve complex problems.
+---
 
-![AgenticLearning Framework](assets/framework.png "AgenticLearning Framework")
-
-| Advancements  |  Models |                                         Tools                                         |                   Environment                   |                                                                    Training Framework                                                                    |
-|:---------------------------------------------------------------------------------------:|:-------------------------:|:-------------------------------------------------------------------------------------:|:-----------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|               [**V2P**](https://github.com/inclusionAI/AgenticLearning/blob/main/V2P/README.md)                | Qwen2.5-VL-7b-instruct |                           PyAutoGUI Tools                           | [AWorld](https://github.com/inclusionAI/AWorld) |                 [Transformers](https://github.com/huggingface/transformers) 
-| [**RAG-R1**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) |    Qwen2.5-7b-instruct    | offline retrieval<br>[online search](https://github.com/qingw-dev/aworld-mcp-servers) | [AWorld](https://github.com/inclusionAI/AWorld) | [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)<br>[verl](https://github.com/volcengine/verl)<br>[AReaL](https://github.com/inclusionAI/AReaL) |
-|               [**FunReason**](https://github.com/BingguangHao/FunReason/)               | Qwen2.5-7b-Coder-instruct |                                       [BFCL](https://gorilla.cs.berkeley.edu/leaderboard.html#leaderboard)                                        | [AWorld](https://github.com/inclusionAI/AWorld) |                                                        [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)<br>[verl](https://github.com/volcengine/verl)                                                        |
-                                                
-
-## News
+## 📣 News
 [2025/08/19] 🔥🔥🔥[**V2P**](https://github.com/inclusionAI/AgenticLearning/blob/main/V2P/README.md) We propose **V2P**, a novel training method for multi-modal models that enables coordinate-free, human-like visual GUI Grounding.
 
 [2025/07/01] 🔥🔥🔥[**RAG-R1**](https://github.com/inclusionAI/AgenticLearning/blob/main/RAG-R1/README.md) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
 
 [2025/05/16] 🔥🔥🔥[**FunReason**](https://github.com/BingguangHao/FunReason/) We propose **FunReason**, a novel framework that enhances LLMs' function calling capabilities through an automated data refinement strategy and a Self-Refinement Multiscale Loss approach.
 
-## Advancements
+## 📖 Introduction
+
+**AWorld-RL** is a comprehensive collection of cutting-edge agentic reinforcement learning algorithms developed by the AWorld Team. Built upon the [AWorld Framework](https://github.com/inclusionAI/AWorld), this repository provides complete **codebases**, **datasets**, and **checkpoints** for training and evaluating autonomous agents that learn through multi-turn interactions with dynamic environments.
+
+Our work focuses on enabling agents to effectively leverage environmental feedback for complex problem-solving across diverse domains, including multi-modal understanding, deep search, and function calling.
+
+![AgenticLearning Framework](assets/framework.png "AgenticLearning Framework")
+
+## 🚀 Projects
+
+**[V2P: From Background Suppression to Center Peaking for Robust GUI Grounding](./V2P)**  
+**Authors:** Jikai Chen, Long Chen, Dong Wang, Leilei Gan, Chenyi Zhuang, Jinjie Gu  
+[![arXiv](https://img.shields.io/badge/arXiv-2508.13634-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2508.13634) [![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2508.13634) [![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/inclusionAI/V2P-7B)
+
+**[RAG-R1: Incentivize the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism](./RAG-R1)**  
+**Authors:** Zhiwen Tan, Jiaming Huang, Qintong Wu, Hongxuan Zhang, Chenyi Zhuang, Jinjie Gu  
+[![arXiv](https://img.shields.io/badge/arXiv-2507.02962-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2507.02962) [![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2507.02962)
+
+**[FunReason: Enhancing Large Language Models' Function Calling via Self-Refinement Multiscale Loss and Automated Data Refinement](https://github.com/BingguangHao/FunReason/)**  
+**Authors:** Bingguang Hao, Maolin Wang, Zengzhuang Xu, Cunyin Peng, Yicheng Chen, Xiangyu Zhao, Jinjie Gu, Chenyi Zhuang  
+[![arXiv](https://img.shields.io/badge/arXiv-2505.20192-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2505.20192) [![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2505.20192)
+                                                
+## 📚 Overview
+
+### Table of Contents
+
+- [Multi-Modal](#multi-modal)
+  - [V2P](#v2p)
+- [Deepsearch](#deepsearch)
+  - [RAG-R1](#rag-r1)
+- [FunctionCall](#functioncall)
+  - [FunReason](#funreason)
+
 ### Multi-Modal
 #### [V2P](https://github.com/inclusionAI/AgenticLearning/blob/main/V2P/README.md) 
 
@@ -74,39 +98,36 @@ FunReason is a framework designed to enhance LLMs' function calling capabilities
 
 <h5 align="center">Performance of FunReason.</h5>
 
-### Citation
+## Citation
 
 Please cite our repo if our works are helpful for your research.
 ```
-@misc{chen2025v2pbackgroundsuppressioncenter,
-      title={V2P: From Background Suppression to Center Peaking for Robust GUI Grounding Task},
-      author={Jikai Chen and Long Chen and Dong Wang and Leilei Gan and Chenyi Zhuang and Jinjie Gu},
-      year={2025},
-      eprint={2508.13634},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2508.13634},
+@article{chen2025v2p,
+  title={V2P: From Background Suppression to Center Peaking for Robust GUI Grounding Task},
+  author={Chen, Jikai and Chen, Long and Wang, Dong and Gan, Leilei and Zhuang, Chenyi and Gu, Jinjie},
+  journal={arXiv preprint arXiv:2508.13634},
+  year={2025}
 }
 
-@article{RAG-R1,
-  title={RAG-R1 : Incentivize the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism}, 
-  author={Zhiwen Tan and Jiaming Huang and Qintong Wu and Hongxuan Zhang and Chenyi Zhuang and Jinjie Gu},
+@article{tan2025rag,
+  title={RAG-R1: Incentivize the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism},
+  author={Tan, Zhiwen and Huang, Jiaming and Wu, Qintong and Zhang, Hongxuan and Zhuang, Chenyi and Gu, Jinjie},
   journal={arXiv preprint arXiv:2507.02962},
   year={2025}
 }
 
-@article{FunReason,
+@article{hao2025funreason,
   title={FunReason: Enhancing Large Language Models' Function Calling via Self-Refinement Multiscale Loss and Automated Data Refinement},
-  author={Bingguang Hao, Maolin Wang, Zengzhuang Xu, Cunyin Peng, Yicheng Chen, Xiangyu Zhao, Jinjie Gu, Chenyi Zhuang},
+  author={Hao, Bingguang and Wang, Maolin and Xu, Zengzhuang and Peng, Cunyin and Chen, Yicheng and Zhao, Xiangyu and Gu, Jinjie and Zhuang, Chenyi},
   journal={arXiv preprint arXiv:2505.20192},
   year={2025}
 }
 ```
 
-## Contact
+## 📞 Contact
 
 For any question or feedback, please reach out to us at [ender.tzw@antgroup.com](mailto:ender.tzw@antgroup.com) or [chenyi.zcy@antgroup.com](mailto:chenyi.zcy@antgroup.com)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE).
