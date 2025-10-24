@@ -1,0 +1,6 @@
+interaction:
+  - class_name: "env_tuning.interaction.new_multi_turn_fc.MultiTurnFunctionCallInteraction"
+    config:
+      name: "multi_turn_tool_call"
+      # Configuration will be read from dataset interaction_kwargs
+      # No default config needed for BFCLV3 format 
