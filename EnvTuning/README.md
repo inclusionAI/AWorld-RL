@@ -82,7 +82,7 @@ We also observe that removing the multi-stage curriculum (i.e., training with a 
 
 ### 1. Environment Setup
 
-First, ensure you have a suitable Python environment (Python 3.10 recommended) and CUDA environment. We use the same dependencies as [verl v0.4.1](https://github.com/volcengine/verl/tree/v0.4.1). You could follow the [installation guide](https://verl.readthedocs.io/en/latest/start/install.html) to install the dependencies.
+First, ensure you have a suitable Python environment (Python 3.10 recommended) and CUDA environment. We use the same dependencies as [verl v0.4.1](https://github.com/volcengine/verl/tree/v0.4.1). You could follow the [installation guide](https://verl.readthedocs.io/en/v0.4.1/start/install.html) to install the dependencies.
 
 ### 2. Install verl Framework
 
