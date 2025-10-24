@@ -1,4 +1,82 @@
-# AWorld-RL Environment Tuning
+<div align="center">
+
+# 🚀 Don't Just Fine-tune the Agent, <br> Tune the Environment 🌱
+
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2502.01456)
+[![Hugging Face](https://img.shields.io/badge/Paper-white?style=for-the-badge&logo=huggingface&logoColor=FFD21E)](https://huggingface.co/papers/2510.10197)
+
+</div>
+
+## 🎉 News
+
+* [2025/10/25] We release the code.
+
+* [2025/10/10] We propose **Environment Tuning**, a novel training paradigm that enables agents to learn complex multi-turn tool use behaviors through environmental interaction rather than trajectory imitation, achieving significant improvements with only 400 training samples.
+
+## 📋 Table of Contents
+
+- [📖 Introduction](#-introduction)
+- [✨ Quick Start](#-quick-start)
+  - [1. Environment Setup](#1-environment-setup)
+  - [2. Install verl Framework](#2-install-verl-framework)
+  - [3. Configure Model and Data Paths](#3-configure-model-and-data-paths)
+  - [4. Run Training](#4-run-training)
+- [🔧 Customization](#-customization)
+- [📜 Citation](#-citation)
+- [📞 Contact](#-contact)
+
+## 📖 Introduction
+
+Training agents for complex multi-turn tool-use is fundamentally constrained by three issues: the extreme scarcity of high-quality training data, the overfitting tendency of supervised fine-tuning (SFT) on synthetic trajectories, and the cold-start instability of standard RL methods (e.g., GRPO). To overcome these roadblocks, we introduce Environment Tuning — a training paradigm that teaches agents to learn robust behaviors by interacting with the environment rather than imitating fixed trajectories, especially under data-scarce regimes.
+
+<div align="center">
+  <img src="./assets/introduction.png" alt="Challenges and motivation">
+  
+</div>
+
+Our method is simple yet effective: we design a curriculum that moves from format understanding to real-world alignment, convert ambiguous failures into actionable guidance, and densify credit assignment across turns and states so the agent can tell “almost correct” from “completely wrong”.
+
+- Four-stage curriculum: start with syntax and calling conventions, scale to complex scenarios, and finally align under realistic evaluation conditions.
+- Actionable environment augmentation: turn vague failures into correctable hints (e.g., missing parameters, tool dependency ordering), so failures become learning signals.
+- Fine-grained progress rewards: dense feedback by turn and by execution outcome, avoiding sparse binary rewards and enabling steady improvement.
+
+<div align="center">
+  <img src="./assets/pipeline.png" alt="Four-stage curriculum with actionable augmentation and progress rewards">
+  
+</div>
+
+<details>
+<summary><b>Results</b></summary>
+
+With only 400 training instances, Environment Tuning delivers significant gains on BFCL V3. For example, Qwen2.5-7B improves from 7.0% to 36.9%, and watt-tool-8B from 35.7% to 54.3%.
+
+<div align="center">
+  <img src="./assets/main_results.png" alt="Main results on BFCL V3">
+  
+</div>
+
+Beyond in-distribution settings, Environment Tuning generalizes robustly to out-of-distribution tasks (e.g., BFCL V4, ACEBench). Notably, Llama-3.1-8B on Web Search improves from 1.0% to 15.0%. We also observe that even models previously overfitted by SFT can regain practical robustness on OOD tasks after training with our method.
+
+<div align="center">
+  <img src="./assets/OOD_results.png" alt="OOD generalization on BFCL V4 and ACEBench">
+  
+</div>
+
+Ablations confirm the necessity of both actionable augmentation and fine-grained progress rewards — removing either makes hard splits dramatically harder to improve.
+
+<div align="center">
+  <img src="./assets/ablation_results.png" alt="Ablation results">
+  
+</div>
+
+We also observe that removing the multi-stage curriculum (i.e., training with a single-stage RL pipeline) leads to unstable training, frequent collapses, and only limited gains compared to our curriculum design.
+
+<div align="center">
+  <img src="./assets/single_stage_stage.png" alt="Single-stage RL ablation">
+  
+</div>
+
+</details>
 
 ## ✨ Quick Start
 
