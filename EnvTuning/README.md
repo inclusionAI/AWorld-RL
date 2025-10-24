@@ -2,7 +2,7 @@
 
 # 🚀 Don't Just Fine-tune the Agent, <br> Tune the Environment 🌱
 
-[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2502.01456)
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2510.10197)
 [![Hugging Face](https://img.shields.io/badge/Paper-white?style=for-the-badge&logo=huggingface&logoColor=FFD21E)](https://huggingface.co/papers/2510.10197)
 
 </div>
