@@ -26,15 +26,15 @@ USER_ROOT_PATH="/agent/share/public/*"
 PROJECT_DIR="$(pwd)"
 CONFIG_PATH="$PROJECT_DIR/env_tuning/config"
 PROJECT_NAME="bfcl_multi_turn_grpo"
-EXPERIMENT_NAME="Qwen2.5-7B-Instruct-format-stage1-new-env-enhanced_test_new_code_bfcl_multi_turn_rl_$(now)"
+EXPERIMENT_NAME="watt-tool-8B-base-miss-long-stage3-new-env-enhanced_test_new_code_bfcl_multi_turn_rl_$(now)"
 MODEL="/agent/*Your local model path."
-DATA_DIR="$PROJECT_DIR/processed_data/bfcl_v3"
+DATA_DIR="$PROJECT_DIR/data"
 ROLLOUT_DIR="$USER_ROOT_PATH/rollout/$PROJECT_NAME/$EXPERIMENT_NAME"
 LOG_DIR="$PROJECT_DIR/logs"
 LOG_FILE="$LOG_DIR/bfcl_multi_turn_rl_train_${TIMESTAMP}.log"
 DEFAULT_LOCAL_DIR="$USER_ROOT_PATH/models/checkpoints/$PROJECT_NAME/$EXPERIMENT_NAME"
 
-TRAIN_BATCH_SIZE=16
+TRAIN_BATCH_SIZE=32
 MINI_BATCH_SIZE=32
 MAX_TOEKN_LEN_PER_GPU=65536
 EPOCH=20
@@ -45,13 +45,13 @@ export TENSORBOARD_DIR="$HOME/tensorboard/$EXPERIMENT_NAME"
 # Run training
 python3 -m verl.trainer.main_ppo \
     --config-path="$CONFIG_PATH" \
-    --config-name='multi_turn_fc_grpo_stage1' \
+    --config-name='multi_turn_fc_grpo_stage3' \
     algorithm.adv_estimator=grpo \
     data.train_batch_size=$TRAIN_BATCH_SIZE \
     data.filter_overlong_prompts=False \
     data.truncation='error' \
     data.return_raw_chat=True \
-    data.train_files=$DATA_DIR/train_format_75.parquet \
+    data.train_files=$DATA_DIR/bfcl_train.parquet \
     data.val_files=$DATA_DIR/bfcl_val.parquet  \
     actor_rollout_ref.model.path=$MODEL \
     actor_rollout_ref.model.use_remove_padding=True \

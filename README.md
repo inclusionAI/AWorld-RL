@@ -84,7 +84,7 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 
 <div align="center">
   <img src="V2P/assets/results.png" alt="V2P-result">
-  <p>Performance on both SreenSpot-v2 (left) and ScreenSpot-Pro (right).</p>
+  <p>Performance on both ScreenSpot-v2 (left) and ScreenSpot-Pro (right).</p>
 </div>
   
 
