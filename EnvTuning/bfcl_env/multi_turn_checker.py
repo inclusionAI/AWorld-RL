@@ -12,6 +12,7 @@ def multi_turn_checker(
     test_entry: dict,
     test_category: str,
     model_name: str,
+    is_augmented: bool = False,
 ) -> dict:
     """
     The main function that checks the correctness of the model's function call execution.
@@ -28,7 +29,9 @@ def multi_turn_checker(
     for turn_index, single_turn_ground_truth_list in enumerate(
         multi_turn_ground_truth_list
     ):
-        single_turn_model_response_list = multi_turn_model_result_list_decoded[turn_index]
+        single_turn_model_response_list = multi_turn_model_result_list_decoded[
+            turn_index
+        ]
 
         # Note that we combine all the sub-step results into a single list, for easier comparison
         single_turn_model_execution_results = []
@@ -36,7 +39,7 @@ def multi_turn_checker(
         single_turn_ground_truth_execution_results = []
         model_instances = {}  # Will be overwritten in the for loop
         single_step_model_execution_results = []  # Will be overwritten in the for loop
-    
+
         for single_step_model_response in single_turn_model_response_list:
             single_step_model_execution_results, model_instances = (
                 execute_multi_turn_func_call(
@@ -49,10 +52,15 @@ def multi_turn_checker(
                         "long_context" in test_category or "composite" in test_category
                     ),
                     is_evaL_run=True,
+                    is_augmented=is_augmented,
                 )
             )
-            single_turn_model_execution_results.extend(single_step_model_execution_results)
-            single_turn_model_execution_results_uncombined.append(single_step_model_execution_results)
+            single_turn_model_execution_results.extend(
+                single_step_model_execution_results
+            )
+            single_turn_model_execution_results_uncombined.append(
+                single_step_model_execution_results
+            )
 
         # Execute the ground truth function calls
         single_turn_ground_truth_execution_results, ground_truth_instances = (
@@ -66,6 +74,7 @@ def multi_turn_checker(
                     "long_context" in test_category or "composite" in test_category
                 ),
                 is_evaL_run=True,
+                is_augmented=is_augmented,
             )
         )
 
@@ -98,9 +107,9 @@ def multi_turn_checker(
             continue
 
         ## Check after each turn ##
-        assert len(model_instances) == len(
-            ground_truth_instances
-        ), f"Model instances and ground truth instances do not match in length for turn {turn_index}. Model instances: {len(model_instances)}, Ground truth instances: {len(ground_truth_instances)}"
+        assert len(model_instances) == len(ground_truth_instances), (
+            f"Model instances and ground truth instances do not match in length for turn {turn_index}. Model instances: {len(model_instances)}, Ground truth instances: {len(ground_truth_instances)}"
+        )
         assert set(model_instances.keys()) == set(ground_truth_instances.keys())
 
         # Check the state of the instances
@@ -140,7 +149,9 @@ def multi_turn_irrelevance_checker(
     for turn_index, single_turn_ground_truth_list in enumerate(
         multi_turn_ground_truth_list
     ):
-        single_turn_model_response_list = multi_turn_model_result_list_decoded[turn_index]
+        single_turn_model_response_list = multi_turn_model_result_list_decoded[
+            turn_index
+        ]
         if len(single_turn_ground_truth_list) == 0:
             if is_empty_execute_response(single_turn_model_response_list):
                 continue
@@ -235,7 +246,9 @@ def method_invoke_order_checker(model_instances: dict, ground_truth_instances: d
         ground_truth_invoke_order = ground_truth_instance.get_method_called()
 
         # Extract the method names
-        model_invoke_order = [method_call["method"] for method_call in model_invoke_order]
+        model_invoke_order = [
+            method_call["method"] for method_call in model_invoke_order
+        ]
         ground_truth_invoke_order = [
             method_call["method"] for method_call in ground_truth_invoke_order
         ]
@@ -260,9 +273,9 @@ def _compare_instances(model_obect, ground_truth_object):
     """
     Checks if the model_object has the same attributes as the ground_truth_object. They are instances of the same class.
     """
-    assert type(model_obect) == type(
-        ground_truth_object
-    ), "Objects are not of the same type."
+    assert type(model_obect) == type(ground_truth_object), (
+        "Objects are not of the same type."
+    )
     differences = {}
     valid = True
     for attr_name in vars(ground_truth_object):
@@ -274,7 +287,10 @@ def _compare_instances(model_obect, ground_truth_object):
 
         if model_attr != ground_truth_attr:
             valid = False
-            differences[attr_name] = {"model": model_attr, "ground_truth": ground_truth_attr}
+            differences[attr_name] = {
+                "model": model_attr,
+                "ground_truth": ground_truth_attr,
+            }
 
     return valid, differences
 
@@ -298,7 +314,7 @@ def _is_subsequence_unordered(list1, list2) -> tuple[bool, list]:
     """
     # Copy list2 to avoid modifying the original list during checks
     list2_copy = list2[:]
-    
+
     # Check each item in list1 to see if it exists in list2_copy
     missing_elements = []
     for item in list1:
@@ -308,7 +324,7 @@ def _is_subsequence_unordered(list1, list2) -> tuple[bool, list]:
         except ValueError:
             # If item is not found, add it to missing_elements
             missing_elements.append(item)
-    
+
     # If there are missing elements, list1 is not a subsequence of list2
     is_subsequence = len(missing_elements) == 0
     return is_subsequence, missing_elements

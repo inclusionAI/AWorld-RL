@@ -1,8 +1,8 @@
+import copy
 import importlib
 import inspect
 import json
 import re
-import copy
 
 CLASS_FILE_PATH_MAPPING = {
     "GorillaFileSystem": "bfcl_env.func_source_code.gorilla_file_system",
@@ -13,6 +13,17 @@ CLASS_FILE_PATH_MAPPING = {
     "TradingBot": "bfcl_env.func_source_code.trading_bot",
     "TravelAPI": "bfcl_env.func_source_code.travel_booking",
     "VehicleControlAPI": "bfcl_env.func_source_code.vehicle_control",
+}
+
+CLASS_FILE_PATH_MAPPING_WO_AUG = {
+    "GorillaFileSystem": "bfcl_env.func_source_code_wo_aug.gorilla_file_system",
+    "MathAPI": "bfcl_env.func_source_code_wo_aug.math_api",
+    "MessageAPI": "bfcl_env.func_source_code_wo_aug.message_api",
+    "TwitterAPI": "bfcl_env.func_source_code_wo_aug.posting_api",
+    "TicketAPI": "bfcl_env.func_source_code_wo_aug.ticket_api",
+    "TradingBot": "bfcl_env.func_source_code_wo_aug.trading_bot",
+    "TravelAPI": "bfcl_env.func_source_code_wo_aug.travel_booking",
+    "VehicleControlAPI": "bfcl_env.func_source_code_wo_aug.vehicle_control",
 }
 
 # These classes are stateless and do not require any initial configuration
@@ -29,6 +40,7 @@ def execute_multi_turn_func_call(
     test_entry_id: str,
     long_context: bool = False,
     is_evaL_run: bool = False,
+    is_augmented: bool = False,
 ) -> tuple[list[str], dict]:
     """
     TODO: Add docstring
@@ -36,16 +48,24 @@ def execute_multi_turn_func_call(
     if is_evaL_run:
         model_name += "_eval"
 
+    path_mapping: dict = (
+        CLASS_FILE_PATH_MAPPING if is_augmented else CLASS_FILE_PATH_MAPPING_WO_AUG
+    )
+
     class_method_name_mapping = {}
     involved_instances = {}
     for class_name in involved_classes:
-        module_name = CLASS_FILE_PATH_MAPPING[class_name]
+        module_name = path_mapping[class_name]
         # TODO: Handler the model name issue from handler more elegantly
         # instance_name = (
         #     f"{model_name.replace('-', '_').replace('.', '_').replace('/', '_')}_{test_entry_id}_{class_name.lower()}_instance"
         # )
-        safe_model_name = "uuid" + model_name.replace('-', '_').replace('.', '_').replace('/', '_')
-        instance_name = f"_{safe_model_name}_{test_entry_id}_{class_name.lower()}_instance"
+        safe_model_name = "uuid" + model_name.replace("-", "_").replace(
+            ".", "_"
+        ).replace("/", "_")
+        instance_name = (
+            f"_{safe_model_name}_{test_entry_id}_{class_name.lower()}_instance"
+        )
         if instance_name not in globals():
             module = importlib.import_module(module_name)
             class_ = getattr(module, class_name)
@@ -79,7 +99,7 @@ def execute_multi_turn_func_call(
 
         # Evaluate the function call
         try:
-            # We need to make a copy here because otherwise the `eval(func_call)` would error. 
+            # We need to make a copy here because otherwise the `eval(func_call)` would error.
             func_call_copy = func_call
             # Before calling `eval`, we need to make sure that the function call is safe
             # We do so by checking if the function is `kill` or `exit`, etc.
@@ -89,9 +109,18 @@ def execute_multi_turn_func_call(
             # Situation where the function call is a method call
             if "." in func_call_copy:
                 func_call_copy = func_call_copy.split(".")[1]
-            if func_call_copy in ["kill", "exit", "quit", "remove", "unlink", "popen", "Popen", "run"]:
+            if func_call_copy in [
+                "kill",
+                "exit",
+                "quit",
+                "remove",
+                "unlink",
+                "popen",
+                "Popen",
+                "run",
+            ]:
                 raise Exception(f"Function call {func_call_copy} is not allowed.")
-            
+
             func_call_result = eval(func_call)
 
             if type(func_call_result) == str:
