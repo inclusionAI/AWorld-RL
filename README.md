@@ -141,7 +141,6 @@ The framework tackles complexity and reliability challenges by breaking the data
 
 <div align="center">
   <img src="FunReason-MT/pipeline.png" alt="FunReason-MT-Pipeline">
-  <p>Pipeline of FunReason-MT.</p>
 </div>
 
 ---
