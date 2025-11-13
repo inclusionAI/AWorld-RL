@@ -34,9 +34,10 @@
 
 ## Main Results
 
-![V2P-result](assets/results.png)
+![V2P-result](assets/screen_spot_v2_accuracy.png)
+![V2P-result](assets/screen_spot_pro_accuracy.png)
 
-<h5 align="center">Fig. 2 Performance on both SreenSpot-v2 (left) and ScreenSpot-Pro (right).</h5>
+<h5 align="center">Fig. 2 Performance on ScreenSpot-v2 (left) and ScreenSpot-Pro (right).</h5>
 
 # 🛠 Dependencies
 
