@@ -244,9 +244,9 @@ Please cite our repo if our works are helpful for your research.
 }
 
 @article{tan2025rag,
-  title={RAG-R1: Incentivize the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism},
+  title={RAG-R1 : Incentivizing the Search and Reasoning Capabilities of LLMs through Multi-query Parallelism},
   author={Tan, Zhiwen and Huang, Jiaming and Wu, Qintong and Zhang, Hongxuan and Zhuang, Chenyi and Gu, Jinjie},
-  journal={arXiv preprint arXiv:2507.02962},
+  journal={arXiv preprint arXiv:2507.02962v5},
   year={2025}
 }
 

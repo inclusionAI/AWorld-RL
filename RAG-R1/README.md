@@ -16,9 +16,10 @@
 [2025/07/01] 🔥🔥🔥[**RAG-R1**](https://github.com/inclusionAI/AWorld-RL/tree/main/RAG-R1) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.
 
 # 💡 Overview
-**RAG-R1** is a deepsearch training framework designed to enable LLMs to adaptively leverage internal and external knowledge during the reasoning process. 
-We further expand the generation and retrieval processes within the framework from single-query mode to multi-query parallelism, aimed at reducing inference time and enhancing the model's capabilities.
-Extensive experiments on seven question-answering benchmarks demonstrate that our method outperforms the strongest baseline by up to **13.2%** and decreases inference time by **11.1%**.
+**RAG-R1** is a novel training framework that enables LLMs to adaptively leverage internal and external knowledge, significantly enhancing their reasoning capabilities.
+The cornerstone of our work is the integration of multi-query parallelism, an architectural innovation designed to directly address the prohibitive latency and inherent brittleness of conventional single-query methods, thereby bolstering reasoning robustness and reducing inference time.
+Extensive experiments on seven QA benchmarks demonstrate the effectiveness of our method, which outperforms the strongest baseline by up to 13.7% and decreases inference time by 11.1%. This dual advancement confirms that our method achieves a superior trade-off, simultaneously boosting the model's reasoning robustness and inference efficiency.
+
 - Paper: [arxiv](https://arxiv.org/abs/2507.02962v5)
 - Model: [huggingface](https://huggingface.co/collections/endertzw/rag-r1)
 - Dataset: [SFT](https://huggingface.co/datasets/endertzw/RAG-R1-SFT-data), [RL](https://huggingface.co/datasets/endertzw/RAG-R1-RL-data), [KILT](https://modelscope.cn/datasets/yaoyueduzhen/KILT)
