@@ -47,7 +47,7 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 
 ## 🚀 Projects
 
-**[FunReason-MT Technical Report: Overcoming the Complexity Barrier in Multi-Turn Function Calling](./FunReason-MT)**  
+**[FunReason-MT Technical Report: Advanced Data Synthesis Solution for Real-world Multi-Turn Tool-use](./FunReason-MT)**  
 **Authors:** Zengzhuang Xu, Bingguang Hao, Zechuan Wang et al. 
 [![arXiv](https://img.shields.io/badge/arXiv-2510.24645-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.24645) [![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/Bingguang/FunReason-MT)[![Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/Bingguang/FunReason-MT)
 
@@ -154,7 +154,7 @@ The model achieves state-of-the-art performance, particularly after applying Rei
 | Model (4B - 235B)                      |             Multi-Turn (Overall)             |            Single-Turn (Overall)            |
 | :------------------------------------- | :------------------------------------------: | :------------------------------------------: |
 | Qwen3-4B-Instruct (Base)               |        15.75         |        78.19         |
-| **Qwen3-4B + FunReason-MT (RL)** | **56.50**  | **85.02**  |
+| **Qwen3-4B + FunReason-MT (RL)** | **57.75**  | **85.47**  |
 | Claude-Sonnet-4-20250514               |        54.75         |        84.72         |
 | DeepSeek-R1-0528                       |        44.50         |        78.22         |
 | GPT-4o-2024-11-20                      |        42.50         |        77.21         |
@@ -223,8 +223,8 @@ FunReason is a framework designed to enhance LLMs' function calling capabilities
 Please cite our repo if our works are helpful for your research.
 ```
 @article{xu2025funreason,
-  title={FunReason-MT Technical Report: Overcoming the Complexity Barrier in Multi-Turn Function Calling},
-  author={Zengzhuang Xu and Bingguang Hao and Zechuan Wang and Yuntao Wen and Maolin Wang and Yang Liu and Long Chen and Dong Wang and Yicheng Chen and Cunyin Peng and Chenyi Zhuang and Jinjie Gu and Xiangyu Zhao and Shi Gu},
+  title={FunReason-MT Technical Report: Advanced Data Synthesis Solution for Real-world Multi-Turn Tool-use},
+  author={Zengzhuang Xu, Bingguang Hao, Zechuan Wang, Yuntao Wen, Xinyi Xu, Yang Liu, Long Chen, Dong Wang, Maolin Wang, Tong Zhao, Yicheng Chen, Cunyin Peng, Jinjie Gu, Leilei Gan, Xiangyu Zhao, Chenyi Zhuang, Shi Gu},
   journal={arXiv preprint arXiv:2510.24645},
   year={2025}
 }
