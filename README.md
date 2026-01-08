@@ -12,7 +12,7 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2505.20192" target="_blank">arXiv(FunReason)</a> ｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.10197" target="_blank">arXiv(EnvTuning)</a>｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.24645" target="_blank">arXiv(FunReason-MT)</a>｜
-<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.10197" target="_blank">arXiv(HardGen)</a>
+<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2601.01498" target="_blank">arXiv(HardGen)</a>
 </p>
 
 
