@@ -11,22 +11,18 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2507.02962v5" target="_blank">arXiv(RAG-R1)</a> ｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2505.20192" target="_blank">arXiv(FunReason)</a> ｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.10197" target="_blank">arXiv(EnvTuning)</a>｜
-<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.24645" target="_blank">arXiv(FunReason-MT)</a>
+<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.24645" target="_blank">arXiv(FunReason-MT)</a>｜
+<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.10197" target="_blank">arXiv(HardGen)</a>
 </p>
 
-<p align="center">
-🤗 <a href="https://huggingface.co/papers/2508.13634" target="_blank">Paper(V2P)</a> ｜
-🤗 <a href="https://huggingface.co/papers/2507.02962" target="_blank">Paper(RAG-R1)</a> ｜
-🤗 <a href="https://huggingface.co/papers/2505.20192" target="_blank">Paper(FunReason)</a> ｜
-🤗 <a href="https://huggingface.co/papers/2510.10197" target="_blank">Paper(EnvTuning)</a>｜
-🤗 <a href="https://huggingface.co/papers/2510.24645" target="_blank">Paper(FunReason-MT)</a>
-</p>
 
 <p align="center">
 <img src="./assets/xiaohongshu.png" width="14px" style="display:inline;"> <a href="http://xhslink.com/o/A5W5duyHWlf" target="_blank">EnvTuning</a>
 </p>
 
 ## 📣 News
+[2026/01/04] 🔥🔥🔥[**HardGen**](./FunReason-MT) We propose **HadrGen**, an extension of the FunReason-MT.
+
 [2025/10/29] 🔥🔥🔥[**FunReason-MT**](./FunReason-MT) We propose **FunReason-MT**, a novel data synthesis framework designed to address critical bottlenecks in multi-turn **Function Calling (FC)** data generation, achieving excellent performance in complex agentic tasks.
 
 [2025/10/22] 🔥🔥🔥[**EnvTuning**](./EnvTuning) We propose **Environment Tuning**, a novel training paradigm that enables agents to learn complex multi-turn tool use behaviors through environmental interaction rather than trajectory imitation, achieving significant improvements with only 400 training samples.
