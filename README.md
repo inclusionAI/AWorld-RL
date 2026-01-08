@@ -7,12 +7,12 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 </div>
 
 <p align="center">
+<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2601.01498" target="_blank">arXiv(HardGen)</a>
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2508.13634" target="_blank">arXiv(V2P)</a> ｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2507.02962v5" target="_blank">arXiv(RAG-R1)</a> ｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2505.20192" target="_blank">arXiv(FunReason)</a> ｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.10197" target="_blank">arXiv(EnvTuning)</a>｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.24645" target="_blank">arXiv(FunReason-MT)</a>｜
-<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2601.01498" target="_blank">arXiv(HardGen)</a>
 </p>
 
 
