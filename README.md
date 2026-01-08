@@ -43,6 +43,10 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 
 ## 🚀 Projects
 
+**[From Failure to Mastery: Generating Hard Samples for Tool-use Agents](./FunReason-MT)**  
+**Authors:** Bingguang Hao, Zengzhuang Xu, Yuntao Wen, Xinyi Xu, Yang Liu et al. 
+[![arXiv](https://img.shields.io/badge/arXiv-2601.01498-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2601.01498) [![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/Bingguang/FunReason-MT)[![Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/Bingguang/FunReason-MT)
+
 **[FunReason-MT Technical Report: Advanced Data Synthesis Solution for Real-world Multi-Turn Tool-use](./FunReason-MT)**  
 **Authors:** Zengzhuang Xu, Bingguang Hao, Zechuan Wang et al. 
 [![arXiv](https://img.shields.io/badge/arXiv-2510.24645-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.24645) [![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/Bingguang/FunReason-MT)[![Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/Bingguang/FunReason-MT)
