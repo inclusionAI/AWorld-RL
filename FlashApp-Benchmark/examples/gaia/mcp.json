@@ -1,0 +1,85 @@
+{
+  "mcpServers": {
+      "e2b-server": {
+          "command": "npx",
+          "args": ["-y", "@e2b/mcp-server"],
+          "env": { "E2B_API_KEY": "${E2B_API_KEY}" }
+      },
+      "playwright": {
+          "command": "npx",
+          "args": [
+            "-y", 
+            "@executeautomation/playwright-mcp-server",
+            "--isolated",
+            "--storage-state=storage.json"
+        ]
+      },
+      "filesystem": {
+          "command": "npx",
+          "args": [
+              "-y",
+              "@modelcontextprotocol/server-filesystem",
+              "${FILESYSTEM_SERVER_WORKDIR}"
+          ]
+      },
+      "terminal-controller": {
+          "command": "python",
+          "args": ["-m", "terminal_controller"],
+          "env": {
+            "SESSION_REQUEST_CONNECT_TIMEOUT": "600"
+        }
+      },
+      "calculator": {
+          "command": "python",
+          "args": ["-m", "mcp_server_calculator"]
+      },
+      "excel": {
+          "url":  "http://localhost:8000/sse"
+      },
+      "google-search": {
+          "command": "npx",
+          "args": [
+              "-y",
+              "@adenot/mcp-google-search"
+          ],
+          "env": {
+              "GOOGLE_API_KEY": "${GOOGLE_API_KEY}",
+              "GOOGLE_SEARCH_ENGINE_ID": "${GOOGLE_SEARCH_ENGINE_ID}"
+          }
+      },
+      "ms-playwright": {
+          "command": "npx",
+          "args": [
+            "@playwright/mcp@latest", "--config", "/Users/yuchengyue/AWorld_local/examples/gaia/playwright-mcp-config.json"
+          ],
+          "env": {
+            "PLAYWRIGHT_TIMEOUT": "120000"
+          },
+          "tool_timeout": 150.0
+      },
+      "audio_server": {
+          "command": "python",
+          "args": ["-m", "mcp_servers.audio_server"]
+      },
+      "image_server": {
+          "command": "python",
+          "args": ["-m", "mcp_servers.image_server"]
+      },
+      "youtube_download_server": {
+          "command": "python",
+          "args": ["-m", "mcp_servers.youtube_download_server"]
+      },
+      "video_server": {
+          "command": "python",
+          "args": ["-m", "mcp_servers.video_server"]
+      },
+      "e2b_upload_file_server":{
+          "command": "python",
+          "args": ["-m", "mcp_servers.e2b_upload_file_server"]
+      },
+      "e2b-code-server":{
+          "command": "python",
+          "args": ["-m", "mcp_servers.e2b_code_server"] 
+      }
+  }
+}
