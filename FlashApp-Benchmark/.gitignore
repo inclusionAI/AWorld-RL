@@ -31,7 +31,6 @@ coverage.xml
 # Log files
 *.log
 git-pre-push-hook-warn.log
-logs/
 logging/
 
 # Environment and virtual environments
