@@ -21,6 +21,9 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 </p>
 
 ## 📣 News
+
+[2026/01/26] 🎉🎉🎉[Environment Tuning](https://arxiv.org/abs/2510.10197) was accepted at [ICLR 2026](https://iclr.cc/) conference!
+
 [2026/01/04] 🔥🔥🔥[**HardGen**](./FunReason-MT) We propose **HadrGen**, an extension of the FunReason-MT.
 
 [2025/10/29] 🔥🔥🔥[**FunReason-MT**](./FunReason-MT) We propose **FunReason-MT**, a novel data synthesis framework designed to address critical bottlenecks in multi-turn **Function Calling (FC)** data generation, achieving excellent performance in complex agentic tasks.

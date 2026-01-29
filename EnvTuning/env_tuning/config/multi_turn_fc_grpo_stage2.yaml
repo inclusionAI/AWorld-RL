@@ -8,7 +8,7 @@ defaults:
 
 
 custom_reward_function:
-  path: env_tuning/format_reward.py
+  path: env_tuning/bfcl_reward.py
   name: compute_score
 
 

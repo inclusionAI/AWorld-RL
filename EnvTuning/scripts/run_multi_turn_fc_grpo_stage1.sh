@@ -51,7 +51,7 @@ python3 -m verl.trainer.main_ppo \
     data.filter_overlong_prompts=False \
     data.truncation='error' \
     data.return_raw_chat=True \
-    data.train_files=$DATA_DIR/train_format_75.parquet \
+    data.train_files=$DATA_DIR/bfcl_train_base.parquet \
     data.val_files=$DATA_DIR/bfcl_val.parquet  \
     actor_rollout_ref.model.path=$MODEL \
     actor_rollout_ref.model.use_remove_padding=True \

@@ -9,6 +9,9 @@
 
 ## 🎉 News
 
+
+* [2026/01/26] The paper was accepted at [ICLR 2026](https://iclr.cc/) conference!
+
 * [2025/10/25] We release the code.
 
 * [2025/10/10] We propose **Environment Tuning**, a novel training paradigm that enables agents to learn complex multi-turn tool use behaviors through environmental interaction rather than trajectory imitation, achieving significant improvements with only 400 training samples.
@@ -160,8 +163,7 @@ Before running training scripts, you need to modify the following configurations
    Besides adding prompts, we did not perform additional processing. We simply sampled half of each split from [BFCL V3 Multi-Turn](https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard/bfcl_eval/data) as the training set, with the remaining portion used as the test set.
 
 **Required Data Files**:
-   - `data/train_format_75.parquet` (Stage 1)
-   - `data/bfcl_train_base.parquet` (Stage 2)
+   - `data/bfcl_train_base.parquet` (Stage 1 & 2)
    - `data/bfcl_train.parquet` (Stage 3 & 4)
    - `data/bfcl_val.parquet` (validation set)
 
