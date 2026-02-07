@@ -13,7 +13,7 @@ TIMESTAMP=$(now)
 PROJECT_DIR="$(pwd)"
 
 export TRITON_CACHE_DIR="/tmp/triton_cache_$(whoami)"
-export PYTHONPATH="$PROJECT_DIR/verl:$PYTHONPATH"
+export PYTHONPATH="$PROJECT_DIR:$PROJECT_DIR/verl:$PYTHONPATH"
 export NCCL_IB_TIMEOUT=22
 export NCCL_TIMEOUT=9999999999
 LOG_DIR="logs"
