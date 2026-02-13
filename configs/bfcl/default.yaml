@@ -1,0 +1,40 @@
+# BFCL custom configuration for slime
+# This file is loaded via --custom-config-path argument
+
+# Parser configuration
+reasoning_parser: "instruct2507"
+tool_call_parser: "hermes"
+
+# Interaction limits
+max_step_limit: 10      # Maximum steps per turn before force ending
+max_num_steps: 30       # Maximum total interaction steps
+
+# Optional TITO drift checks (default off for performance)
+tito_drift_check_enabled: false
+
+# ============================================================================
+# TIS (Truncated Importance Sampling) configuration
+# Required when using --get-mismatch-metrics or --use-tis
+# ============================================================================
+
+# Aggregation level: token (per-token), sequence (product), geometric (geometric mean)
+tis_level: "token"
+
+# Handling mode: truncate (cap to upper), clip (clip to [lower, upper]), mask (zero outside bounds)
+tis_mode: "truncate"
+
+# IS weight bounds (truncate mode only uses upper_bound)
+tis_lower_bound: 0.5
+tis_upper_bound: 2.0
+
+# Batch normalization: normalize IS weights to mean=1.0 across batch (reduces gradient variance)
+tis_batch_normalize: true
+
+# ============================================================================
+# RS (Rejection Sampling) configuration - disabled by default
+# ============================================================================
+use_rs: false
+rs_level: "token"
+rs_lower_bound: null    # Defaults to tis_lower_bound if null
+rs_upper_bound: null    # Defaults to tis_upper_bound if null
+rs_veto_threshold: null # Per-token veto threshold (e.g., 1.0e-4)

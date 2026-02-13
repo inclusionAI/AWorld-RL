@@ -1,0 +1,6 @@
+[submodule "3rdparty/gorilla"]
+	path = 3rdparty/gorilla
+	url = https://github.com/ShishirPatil/gorilla.git
+[submodule "3rdparty/slime"]
+	path = 3rdparty/slime
+	url = https://github.com/THUDM/slime.git

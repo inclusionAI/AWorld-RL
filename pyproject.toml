@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "t3rl"
+version = "0.1.0"
+description = "T3RL: Multi-turn tool-use RL training components"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary" }
+authors = [
+  { name = "T3RL Contributors" }
+]
+dependencies = [
+  "bfcl_eval @ file:3rdparty/gorilla/berkeley-function-call-leaderboard",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["t3rl*"]
+exclude = ["tests*", "3rdparty*", "data*", "scripts*", "configs*", "docs*"]
