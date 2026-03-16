@@ -1,0 +1,32 @@
+# Python Core Dependencies
+asyncio-compat>=0.1.0
+aiofiles>=23.0.0
+
+# Web Automation
+playwright>=1.40.0
+playwright-stealth>=1.0.6
+
+# Image Processing
+Pillow>=10.0.0
+
+# HTTP Requests
+requests>=2.31.0
+httpx>=0.25.0
+
+# Data Processing
+numpy>=1.24.0
+
+# System Monitoring
+psutil>=5.9.0
+
+# API Clients
+google-generativeai>=0.3.0
+anthropic>=0.25.0
+openai>=1.0.0
+
+# Configuration
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+
+# Type Checking
+typing-extensions>=4.8.0
