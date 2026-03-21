@@ -29,14 +29,13 @@ StressWeb/
 
 ### 2. Download Dataset
 
-Download test data from HuggingFace (link coming soon):
+Download test data from HuggingFace:
 
 ```bash
-# Download and extract websites and queries datasets
-# HuggingFace dataset link: coming soon
-```
+# Clone the dataset repository
+git clone https://huggingface.co/datasets/HuggingSelf/StressWeb
 
-Place the downloaded data in the project root directory:
+After downloading, place the data in the project root directory:
 - `websites/` - Contains all test websites
 - `queries/` - Contains all test query files
 
