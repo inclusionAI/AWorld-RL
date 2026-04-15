@@ -22,7 +22,7 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 
 ## 📣 News
 
-[2026/01/26] 🎉🎉🎉[Environment Tuning](https://arxiv.org/abs/2510.10197) was accepted at [ICLR 2026](https://iclr.cc/) conference!
+[2026/01/26] 🎉🎉🎉[**Environment Tuning**](https://arxiv.org/abs/2510.10197) was accepted at [ICLR 2026](https://iclr.cc/) conference!
 
 [2026/01/04] 🔥🔥🔥[**HardGen**](./FunReason-MT) We propose **HadrGen**, an extension of the FunReason-MT.
 
@@ -47,28 +47,51 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 ## 🚀 Projects
 
 **[From Failure to Mastery: Generating Hard Samples for Tool-use Agents](./FunReason-MT)**  
+
 **Authors:** Bingguang Hao, Zengzhuang Xu, Yuntao Wen, Xinyi Xu, Yang Liu et al. 
-[![arXiv](https://img.shields.io/badge/arXiv-2601.01498-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2601.01498) [![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/Bingguang/FunReason-MT)[![Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/Bingguang/FunReason-MT)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2601.01498-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2601.01498) 
+[![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/Bingguang/FunReason-MT)
+[![Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/Bingguang/FunReason-MT)
 
 **[FunReason-MT Technical Report: Advanced Data Synthesis Solution for Real-world Multi-Turn Tool-use](./FunReason-MT)**  
+
 **Authors:** Zengzhuang Xu, Bingguang Hao, Zechuan Wang et al. 
-[![arXiv](https://img.shields.io/badge/arXiv-2510.24645-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.24645) [![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/Bingguang/FunReason-MT)[![Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/Bingguang/FunReason-MT)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2510.24645-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.24645) 
+[![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/Bingguang/FunReason-MT)
+[![Dataset](https://img.shields.io/badge/Hugging%20Face-Dataset-yellow?logo=huggingface)](https://huggingface.co/datasets/Bingguang/FunReason-MT)
 
 **[Don't Just Fine-tune the Agent, Tune the Environment](./EnvTuning)**  
+
 **Authors:** Siyuan Lu, Zechuan Wang, Hongxuan Zhang, Qintong Wu, Leilei Gan, Chenyi Zhuang, Jinjie Gu, Tao Lin  
-[![arXiv](https://img.shields.io/badge/arXiv-2510.10197-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.10197) [![Model](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2510.10197)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2510.10197-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.10197) 
+[![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2510.10197) 
+[![Models](https://img.shields.io/badge/Hugging%20Face-Models-yellow?logo=huggingface)](https://huggingface.co/collections/IcyFish/environment-tuning) 
+[![Training Curves](https://img.shields.io/badge/W&B-Training_Curves-yellow?logo=weightsandbiases)](https://wandb.ai/T3RL/Environment%20Tuning)
 
 **[V2P: From Background Suppression to Center Peaking for Robust GUI Grounding](./V2P)**  
+
 **Authors:** Jikai Chen, Long Chen, Dong Wang, Leilei Gan, Chenyi Zhuang, Jinjie Gu  
-[![arXiv](https://img.shields.io/badge/arXiv-2508.13634-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2508.13634) [![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2508.13634) [![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/inclusionAI/V2P-7B)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2508.13634-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2508.13634) 
+[![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2508.13634) 
+[![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/inclusionAI/V2P-7B)
 
 **[RAG-R1: Incentivizing the Search and Reasoning Capabilities of LLMs Through Multi-query Parallelism](./RAG-R1)**  
+
 **Authors:** Zhiwen Tan, Jiaming Huang, Qintong Wu, Hongxuan Zhang, Chenyi Zhuang, Jinjie Gu  
-[![arXiv](https://img.shields.io/badge/arXiv-2507.02962-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2507.02962v5) [![Model](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2507.02962)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2507.02962-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2507.02962v5) 
+[![Model](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2507.02962)
 
 **[FunReason: Enhancing Large Language Models' Function Calling via Self-Refinement Multiscale Loss and Automated Data Refinement](https://github.com/BingguangHao/FunReason/)**  
+
 **Authors:** Bingguang Hao, Maolin Wang, Zengzhuang Xu, Cunyin Peng, Yicheng Chen, Xiangyu Zhao, Jinjie Gu, Chenyi Zhuang  
-[![arXiv](https://img.shields.io/badge/arXiv-2505.20192-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2505.20192) [![Model](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2505.20192)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2505.20192-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2505.20192) 
+[![Model](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2505.20192)
                          
 ## 📚 Overview
 
@@ -180,6 +203,9 @@ The FunReason-MT trained model leads in out-of-distribution agentic tasks (Web S
 
 
 #### [Environment Tuning](./EnvTuning)
+
+> [!NOTE]
+> A reimplemented and actively maintained version is available at **[T3RL](https://github.com/IcyFish332/T3RL)**. New users are recommended to start there.
 
 - Tools: Multi-turn Tool Use (BFCL Benchmark)
 - LLM: Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct, watt-tool-8B

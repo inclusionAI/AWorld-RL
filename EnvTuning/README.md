@@ -3,12 +3,19 @@
 # 🚀 Don't Just Fine-tune the Agent, <br> Tune the Environment 🌱
 
 [![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2510.10197)
-[![Hugging Face](https://img.shields.io/badge/Paper-white?style=for-the-badge&logo=huggingface&logoColor=FFD21E)](https://huggingface.co/papers/2510.10197)
+[![Hugging Face](https://img.shields.io/badge/Paper-FFD21E?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/papers/2510.10197)
+[![Models](https://img.shields.io/badge/Models-FFD21E?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/collections/IcyFish/environment-tuning)
+[![Training Curves](https://img.shields.io/badge/Training_Curves-FFBE00?style=for-the-badge&logo=weightsandbiases&logoColor=white)](https://wandb.ai/T3RL/Environment%20Tuning)
 
 </div>
 
+> [!IMPORTANT]
+> **This repository contains the original research code for the ICLR 2026 paper.**
+> A reimplemented, actively maintained version with improved architecture is available at **[T3RL](https://github.com/IcyFish332/T3RL)** — featuring slime-based non-invasive RL integration, streamlined 2-stage curriculum, open data preprocessing pipeline, and standalone async evaluation. **New users are recommended to start with T3RL.**
+
 ## 🎉 News
 
+* [2026/04/15] 🚀 A reimplemented, actively maintained version **[T3RL](https://github.com/IcyFish332/T3RL)** is now available — featuring slime-based non-invasive RL integration, streamlined 2-stage curriculum, open data preprocessing pipeline, and standalone async evaluation. **New users are recommended to start with T3RL.**
 
 * [2026/01/26] The paper was accepted at [ICLR 2026](https://iclr.cc/) conference!
 
