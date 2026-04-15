@@ -22,7 +22,9 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 
 ## 📣 News
 
-[2026/01/26] 🎉🎉🎉[**Environment Tuning**](https://arxiv.org/abs/2510.10197) was accepted at [ICLR 2026](https://iclr.cc/) conference!
+[2026/04/06] 🎉🎉🎉[**FunReason (BalanceSFT)**](https://arxiv.org/html/2505.20192v3) was accepted as a finding paper of [ACL 2026](https://2026.aclweb.org/) conference!
+
+[2026/01/26] 🎉🎉🎉[**Environment Tuning**](https://arxiv.org/abs/2510.10197) was accepted at [ICLR 2026](https://iclr.cc/virtual/2026/poster/10007443) conference!
 
 [2026/01/04] 🔥🔥🔥[**HardGen**](./FunReason-MT) We propose **HadrGen**, an extension of the FunReason-MT.
 
@@ -34,7 +36,7 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 
 [2025/07/01] 🔥🔥🔥[**RAG-R1**](./RAG-R1) We propose **RAG-R1**, a deepsearch training framework that incentivizing the search and reasoning capabilities of LLMs through multi-query parallelism.(**AAAI2026 Accepted**)
 
-[2025/05/16] 🔥🔥🔥[**FunReason**](https://github.com/BingguangHao/FunReason/) We propose **FunReason**, a novel framework that enhances LLMs' function calling capabilities through an automated data refinement strategy and a Self-Refinement Multiscale Loss approach.
+[2025/05/16] 🔥🔥🔥[**FunReason**](https://github.com/BingguangHao/FunReason/) We propose **FunReason**, a novel framework that enhances LLMs' function calling capabilities through an automated data refinement strategy and a Self-Refinement Multiscale Loss approach.(**ACL2026 Accepted**)
 
 ## 📖 Introduction
 
