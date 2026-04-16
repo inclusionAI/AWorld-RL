@@ -30,7 +30,7 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 
 [2025/10/29] 🔥🔥🔥[**FunReason-MT**](./FunReason-MT) We propose **FunReason-MT**, a novel data synthesis framework designed to address critical bottlenecks in multi-turn **Function Calling (FC)** data generation, achieving excellent performance in complex agentic tasks.
 
-[2025/10/22] 🔥🔥🔥[**EnvTuning**](./EnvTuning) We propose **Environment Tuning**, a novel training paradigm that enables agents to learn complex multi-turn tool use behaviors through environmental interaction rather than trajectory imitation, achieving significant improvements with only 400 training samples.
+[2025/10/22] 🔥🔥🔥[**EnvTuning**](./EnvTuning) We propose **Environment Tuning**, a novel training paradigm that enables agents to learn complex multi-turn tool use behaviors through environmental interaction rather than trajectory imitation, achieving significant improvements with only 400 training samples.(**ICLR2026 Accepted**)
 
 [2025/08/19] 🔥🔥🔥[**V2P**](./V2P) We propose **V2P**, a novel training method for multi-modal models that enables coordinate-free, human-like visual GUI Grounding.
 
@@ -66,7 +66,7 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 
 **[Don't Just Fine-tune the Agent, Tune the Environment](./EnvTuning)**  
 
-**Authors:** Siyuan Lu, Zechuan Wang, Hongxuan Zhang, Qintong Wu, Leilei Gan, Chenyi Zhuang, Jinjie Gu, Tao Lin  
+**Authors:** Siyuan Lu, Zechuan Wang, Hongxuan Zhang, Qintong Wu, Leilei Gan, Chenyi Zhuang, Jinjie Gu, Tao Lin (**ICLR 2026**)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2510.10197-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.10197) 
 [![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2510.10197) 
@@ -83,14 +83,14 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 
 **[RAG-R1: Incentivizing the Search and Reasoning Capabilities of LLMs Through Multi-query Parallelism](./RAG-R1)**  
 
-**Authors:** Zhiwen Tan, Jiaming Huang, Qintong Wu, Hongxuan Zhang, Chenyi Zhuang, Jinjie Gu  
+**Authors:** Zhiwen Tan, Jiaming Huang, Qintong Wu, Hongxuan Zhang, Chenyi Zhuang, Jinjie Gu (**AAAI 2026**)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2507.02962-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2507.02962v5) 
 [![Model](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2507.02962)
 
 **[FunReason: Enhancing Large Language Models' Function Calling via Self-Refinement Multiscale Loss and Automated Data Refinement](https://github.com/BingguangHao/FunReason/)**  
 
-**Authors:** Bingguang Hao, Maolin Wang, Zengzhuang Xu, Cunyin Peng, Yicheng Chen, Xiangyu Zhao, Jinjie Gu, Chenyi Zhuang  
+**Authors:** Bingguang Hao, Maolin Wang, Zengzhuang Xu, Cunyin Peng, Yicheng Chen, Xiangyu Zhao, Jinjie Gu, Chenyi Zhuang (**ACL 2026**)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2505.20192-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2505.20192) 
 [![Model](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2505.20192)
