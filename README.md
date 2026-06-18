@@ -11,6 +11,7 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2508.13634" target="_blank">arXiv(V2P)</a> ｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2507.02962v5" target="_blank">arXiv(RAG-R1)</a> ｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2505.20192" target="_blank">arXiv(FunReason)</a> ｜
+<img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2606.19047" target="_blank">arXiv(RODS)</a> ｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.10197" target="_blank">arXiv(EnvTuning)</a>｜
 <img src="./assets/arxiv.png" width="14px" style="display:inline;"> <a href="https://arxiv.org/abs/2510.24645" target="_blank">arXiv(FunReason-MT)</a>｜
 </p>
@@ -21,6 +22,8 @@ Agentic Learning Powered by <a href="https://github.com/inclusionAI/AWorld"><img
 </p>
 
 ## 📣 News
+
+[2026/06/18] 🔥🔥🔥[**RODS**](./RODS) We propose **RODS** (Reward-driven Online Data Synthesis), a closed-loop framework that tightly couples data generation with the RL training loop to resolve gradient signal depletion in multi-turn tool-use agents.
 
 [2026/04/06] 🎉🎉🎉[**FunReason (BalanceSFT)**](https://arxiv.org/html/2505.20192v3) was accepted as a finding paper of [ACL 2026](https://2026.aclweb.org/) conference!
 
@@ -47,6 +50,14 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 ![AgenticLearning Framework](assets/framework.png "AgenticLearning Framework")
 
 ## 🚀 Projects
+
+**[RODS: Reward-Driven Online Data Synthesis for Multi-Turn Tool-Use Agents](./RODS)**  
+
+**Authors:** Ruishan Fang, Siyuan Lu, Chenyi Zhuang, Tao Lin
+
+[![arXiv](https://img.shields.io/badge/arXiv-2606.19047-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2606.19047) 
+[![Paper](https://img.shields.io/badge/Hugging%20Face-Paper-yellow?logo=huggingface)](https://huggingface.co/papers/2606.19047) 
+[![Model](https://img.shields.io/badge/Hugging%20Face-Model-yellow?logo=huggingface)](https://huggingface.co/RuishanFang/Qwen3-4B-RODS)
 
 **[From Failure to Mastery: Generating Hard Samples for Tool-use Agents](./FunReason-MT)**  
 
@@ -104,6 +115,7 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 - [Deepsearch](#deepsearch)
   - [RAG-R1](#rag-r1)
 - [Tool Use](#tool-use)
+  - [RODS](#rods)
   - [FunReason-MT](#funreason-mt)
   - [Environment Tuning](#environment-tuning)
   - [FunReason](#funreason)
@@ -144,6 +156,28 @@ Our work focuses on enabling agents to effectively leverage environmental feedba
 </div>
 
 ### Tool Use
+
+#### [RODS](./RODS)
+
+- Tools: Multi-turn Tool Use (BFCL Benchmark)
+- LLM: Qwen3-4B-Instruct, Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct
+
+RODS (Reward-driven Online Data Synthesis) closes the loop between RL training and data generation. It repurposes progress reward variance as a zero-cost boundary detector, continuously synthesizes structurally isomorphic variants via a skill-aligned multi-agent pipeline, and manages a dynamic replay buffer that co-evolves with the policy.
+
+<div align="center">
+  <img src="RODS/assets/methodology.png" alt="RODS-methodology">
+  <p>The RODS closed-loop RL-data synthesis architecture.</p>
+</div>
+
+| Model | Overall | Base | Miss Func | Miss Param | Long Context |
+|---|---|---|---|---|---|
+| GPT-4o-2024-11-20 | 42.50 | 55.50 | 34.50 | 29.00 | 51.00 |
+| DeepSeek-V3.2-Exp | 44.88 | 55.00 | 49.00 | 27.00 | 48.50 |
+| Qwen3-4B-Instruct | 22.13 | 26.50 | 21.00 | 15.50 | 25.50 |
+| &nbsp;&nbsp;+ Static dataset | 50.00 (+27.87) | 62.00 | 51.00 | 35.00 | 52.00 |
+| &nbsp;&nbsp;+ EnvTuning | 50.50 (+28.37) | 64.00 | 52.00 | 35.00 | 51.00 |
+| &nbsp;&nbsp;+ **RODS (ours)** | **56.00 (+33.87)** | **68.00** | **59.00** | **44.00** | **53.00** |
+
 #### [FunReason-MT](./FunReason-MT)
 - Tools: Multi-turn Tool Use (BFCLv3 Benchmark)
 - LLM: Qwen3-4b-Instruct-2507
@@ -253,6 +287,13 @@ FunReason is a framework designed to enhance LLMs' function calling capabilities
 
 Please cite our repo if our works are helpful for your research.
 ```
+@article{fang2026rods,
+  title={RODS: Reward-Driven Online Data Synthesis for Multi-Turn Tool-Use Agents},
+  author={Fang, Ruishan and Lu, Siyuan and Zhuang, Chenyi and Lin, Tao},
+  journal={arXiv preprint arXiv:2606.19047},
+  year={2026}
+}
+
 @article{xu2025funreason,
   title={FunReason-MT Technical Report: Advanced Data Synthesis Solution for Real-world Multi-Turn Tool-use},
   author={Zengzhuang Xu, Bingguang Hao, Zechuan Wang, Yuntao Wen, Xinyi Xu, Yang Liu, Long Chen, Dong Wang, Maolin Wang, Tong Zhao, Yicheng Chen, Cunyin Peng, Jinjie Gu, Leilei Gan, Xiangyu Zhao, Chenyi Zhuang, Shi Gu},
